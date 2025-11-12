@@ -14,6 +14,12 @@ export function StartScreen({ onStart }: StartScreenProps) {
       <p className="mt-4 text-lg md:text-xl text-foreground/70">
         Descubre el mensaje oculto que puede cambiar tu vida hoy.
       </p>
+      <p className="mt-4 text-lg md:text-xl text-foreground/70">
+        Cada respuesta revelará qué parte de tu fe ha estado dormida.
+      </p>
+      <p className="mt-4 text-lg md:text-xl text-foreground/70 italic">
+        Responde con sinceridad — el resultado puede despertar algo que pensabas olvidado.
+      </p>
       <Button 
         onClick={onStart} 
         size="lg" 
