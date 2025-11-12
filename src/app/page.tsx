@@ -9,6 +9,8 @@ import { quizQuestions } from '@/lib/quiz-data';
 import type { Patriarch } from '@/lib/quiz-data';
 import { getSpiritualInsightAction } from '@/app/actions';
 import { useToast } from '@/hooks/use-toast';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft } from 'lucide-react';
 
 type QuizState = 'start' | 'in-progress' | 'loading' | 'result';
 type Answer = { patriarch: Patriarch; answerText: string };
@@ -26,6 +28,15 @@ export default function Home() {
     setCurrentQuestionIndex(0);
     setResult(null);
     setQuizState('in-progress');
+  };
+
+  const handleBack = () => {
+    if (quizState === 'in-progress' && currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(prev => prev - 1);
+      setAnswers(prev => prev.slice(0, -1));
+    } else {
+      setQuizState('start');
+    }
   };
 
   const determineResult = useCallback((finalAnswers: Answer[]): Patriarch => {
@@ -121,9 +132,19 @@ export default function Home() {
 
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center p-4 md:p-8 parchment-background">
-        <div className="relative z-10 w-full">
-            {renderContent()}
-        </div>
+      {quizState !== 'start' && quizState !== 'loading' && (
+        <Button 
+          variant="ghost" 
+          onClick={handleBack} 
+          className="absolute top-4 left-4 z-20 text-foreground/70 hover:text-foreground hover:bg-transparent"
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Volver
+        </Button>
+      )}
+      <div className="relative z-10 w-full">
+          {renderContent()}
+      </div>
     </main>
   );
 }
