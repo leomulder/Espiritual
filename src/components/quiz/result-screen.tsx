@@ -320,7 +320,7 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
                             <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10 hover:text-primary" onClick={() => setIsUpgradeModalOpen(true)}>Comenzar con el Básico</Button>
                         </CardContent>
                     </Card>
-                    <Card className="border-2 border-primary relative overflow-hidden card-glow">
+                    <Card className="border-2 border-primary relative card-glow">
                          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
                             Recomendado
                         </div>
