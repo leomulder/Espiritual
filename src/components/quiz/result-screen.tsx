@@ -231,7 +231,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                 alt={heroBookCoverImage.description}
                 width={1200}
                 height={1824}
-                className="rounded-lg mx-auto"
+                className="rounded-lg mx-auto w-full max-w-[600px] h-auto"
                 data-ai-hint={heroBookCoverImage.imageHint}
                 priority
               />
@@ -364,9 +364,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                                 <li className="flex items-center"><CheckCircle className="h-5 w-5 mr-2 text-green-600" /> Plan de lectura guiada</li>
                                 <li className="flex items-center"><CheckCircle className="h-5 w-5 mr-2 text-green-600" /> Lectura y audio integrados</li>
                             </ul>
-                            <a href="https://pay.hotmart.com/K99537811Y?off=8h2ivhga&checkoutMode=10&bid=1762987180989" target="_blank" rel="noopener noreferrer" className="w-full">
-                                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10 hover:text-primary" onClick={() => setIsUpgradeModalOpen(true)}>Comenzar con el Básico</Button>
-                            </a>
+                            <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10 hover:text-primary" onClick={() => setIsUpgradeModalOpen(true)}>Comenzar con el Básico</Button>
                         </CardContent>
                     </Card>
                     <Card className="border-2 border-primary relative card-glow flex flex-col">
@@ -531,7 +529,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                     </ul>
                 </div>
                 <DialogFooter className="sm:flex-col sm:space-x-0 gap-2">
-                    <a href="https://pay.hotmart.com/K99537811Y?off=rtgmziqk&checkoutMode=10&bid=1762987298554" target="_blank" rel="noopener noreferrer" className="w-full">
+                    <a href="https://pay.hotmart.com/K99537811Y?off=5suiqzrp&checkoutMode=10" target="_blank" rel="noopener noreferrer" className="w-full">
                         <Button className="w-full cta-button text-lg h-auto py-3">Sí, quiero el descuento</Button>
                     </a>
                     <a href="https://pay.hotmart.com/K99537811Y?off=8h2ivhga&checkoutMode=10&bid=1762987180989" target="_blank" rel="noopener noreferrer" className="w-full">
@@ -544,3 +542,5 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
     </div>
   );
 }
+
+    
