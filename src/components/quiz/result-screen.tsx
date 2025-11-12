@@ -30,7 +30,7 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
             </CardContent>
           </Card>
         </div>
-        <Button asChild size="lg" variant="ghost" className="mt-12 text-accent hover:text-accent/80 animate-pulse">
+        <Button asChild size="lg" variant="outline" className="mt-12 bg-accent/20 border-accent text-accent-foreground hover:bg-accent/30 animate-pulse">
             <a href="#transition">
                 Descubre más <ArrowDown className="ml-2 h-5 w-5" />
             </a>
