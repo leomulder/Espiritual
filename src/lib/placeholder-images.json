@@ -1,6 +1,12 @@
 {
   "placeholderImages": [
     {
+      "id": "quiz-start-image",
+      "description": "Logo for 'Patriarcas y Profetas' with two figures and a scroll",
+      "imageUrl": "https://i.imgur.com/G55gW0h.jpeg",
+      "imageHint": "logo scroll"
+    },
+    {
       "id": "ebook-cover",
       "description": "Ebook cover with desert background and golden light",
       "imageUrl": "https://images.unsplash.com/photo-1522296328611-c1e5d33cb429?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZWJvb2slMjBkZXNlcnR8ZW58MHx8fHwxNzYyOTUwMjAzfDA&ixlib=rb-4.1.0&q=80&w=1080",
