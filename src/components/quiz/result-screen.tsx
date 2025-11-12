@@ -50,6 +50,7 @@ import { cn } from '@/lib/utils';
 interface ResultScreenProps {
   patriarch: Patriarch;
   insight: string;
+  onRestart: () => void;
 }
 
 const testimonials = [
@@ -152,7 +153,10 @@ const BackToTopButton = () => {
   return (
     <Button
       onClick={scrollToTop}
-      className={`fixed top-4 left-4 z-50 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      className={cn(
+        'fixed bottom-4 right-4 z-50 transition-opacity duration-300',
+        isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      )}
       variant="outline"
       size="icon"
     >
@@ -163,7 +167,7 @@ const BackToTopButton = () => {
 };
 
 
-export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
+export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProps) {
   const authorImage = PlaceHolderImages.find(img => img.id === 'author-portrait');
   const appMockupImage = PlaceHolderImages.find(img => img.id === 'app-mockup');
   
@@ -190,14 +194,14 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
 
 
   return (
-    <div className="w-full bg-white text-foreground">
+    <div className="w-full bg-white text-foreground animate-in fade-in duration-1000">
         {currentPurchase && <PurchaseNotification purchase={currentPurchase} onClose={() => setCurrentPurchase(null)} />}
         <BackToTopButton />
 
       {/* SECCIÓN 1 — Hero */}
       <section className="text-center py-16 md:py-24 px-6 md:px-16 bg-gradient-to-b from-background to-white">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-semibold text-foreground/90">
+          <h1 className="text-3xl md:text-5xl font-semibold text-foreground/90">
             ✨ Lo que los Patriarcas descubrieron puede transformar tu fe… incluso en estos tiempos.
           </h1>
           <p className="mt-6 text-lg md:text-xl text-foreground/70">
@@ -313,13 +317,13 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
             <div className="max-w-5xl mx-auto text-center">
                 <h2 className="text-3xl md:text-4xl font-semibold text-foreground/90 mb-12">Elige cómo comenzar tu viaje espiritual</h2>
                 <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <Card className="text-center">
+                    <Card className="text-center flex flex-col">
                         <CardHeader>
                             <CardTitle className="text-2xl">Plan Básico</CardTitle>
                         </CardHeader>
-                        <CardContent className="space-y-6">
+                        <CardContent className="space-y-6 flex flex-col flex-grow">
                             <p className="text-4xl font-bold">U$6,90</p>
-                            <ul className="space-y-2 text-left text-foreground/80">
+                            <ul className="space-y-2 text-left text-foreground/80 flex-grow">
                                 <li className="flex items-center"><CheckCircle className="h-5 w-5 mr-2 text-green-600" /> Acceso completo al aplicativo</li>
                                 <li className="flex items-center"><CheckCircle className="h-5 w-5 mr-2 text-green-600" /> Plan de lectura guiada</li>
                                 <li className="flex items-center"><CheckCircle className="h-5 w-5 mr-2 text-green-600" /> Lectura y audio integrados</li>
@@ -327,16 +331,16 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
                             <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10 hover:text-primary" onClick={() => setIsUpgradeModalOpen(true)}>Comenzar con el Básico</Button>
                         </CardContent>
                     </Card>
-                    <Card className="border-2 border-primary relative card-glow">
+                    <Card className="border-2 border-primary relative card-glow flex flex-col">
                          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
                             Recomendado
                         </div>
                         <CardHeader>
                             <CardTitle className="text-2xl">Plan Completo</CardTitle>
                         </CardHeader>
-                        <CardContent className="space-y-6">
+                        <CardContent className="space-y-6 flex flex-col flex-grow">
                             <p className="text-4xl font-bold">U$11,90 <span className="text-xl line-through text-muted-foreground">U$18,90</span></p>
-                             <ul className="space-y-2 text-left text-foreground/80">
+                             <ul className="space-y-2 text-left text-foreground/80 flex-grow">
                                 <li className="flex items-start"><Check className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Todo lo del Plan Básico</span></div></li>
                                 <li className="flex items-start"><BookUser className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Módulo de anotaciones</span></div></li>
                                 <li className="flex items-start"><MessageSquareQuote className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Comentarios del autor</span></div></li>
@@ -458,6 +462,7 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
           </div>
           <div className="mt-10 pt-8 border-t border-gray-700 text-center text-xs text-gray-400">
              <p>© 2025 Patriarcas y Profetas. Todos los derechos reservados.</p>
+             <p className="mt-2">¿Necesitas reiniciar el quiz? <Button variant="link" onClick={onRestart} className="text-gray-300 p-0 h-auto">Haz clic aquí</Button></p>
           </div>
       </footer>
 

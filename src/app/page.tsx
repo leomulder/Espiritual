@@ -66,38 +66,35 @@ export default function Home() {
 
   const handleAnswer = useCallback(async (patriarch: Patriarch, answerText: string) => {
     if (isAnswering) return;
-    setIsAnswering(true);
     
     const newAnswers = [...answers, { patriarch, answerText }];
     setAnswers(newAnswers);
 
-    setTimeout(() => {
-        if (currentQuestionIndex < quizQuestions.length - 1) {
-            setCurrentQuestionIndex(prev => prev + 1);
-            setIsAnswering(false);
-        } else {
-            setQuizState('loading');
-            const finalPatriarch = determineResult(newAnswers);
-            const answerTexts = newAnswers.map(a => a.answerText);
-            
-            getSpiritualInsightAction(finalPatriarch, answerTexts)
-                .then(insight => {
-                    setResult({ patriarch: finalPatriarch, insight });
-                    setQuizState('result');
-                })
-                .catch(err => {
-                    console.error(err);
-                    toast({
-                        variant: 'destructive',
-                        title: 'Error',
-                        description: 'No se pudo generar la revelación. Por favor, intenta de nuevo.',
-                    });
-                    setQuizState('start');
-                }).finally(() => {
-                    setIsAnswering(false);
+    if (currentQuestionIndex < quizQuestions.length - 1) {
+        setCurrentQuestionIndex(prev => prev + 1);
+    } else {
+        setIsAnswering(true);
+        setQuizState('loading');
+        const finalPatriarch = determineResult(newAnswers);
+        const answerTexts = newAnswers.map(a => a.answerText);
+        
+        getSpiritualInsightAction(finalPatriarch, answerTexts)
+            .then(insight => {
+                setResult({ patriarch: finalPatriarch, insight });
+                setQuizState('result');
+            })
+            .catch(err => {
+                console.error(err);
+                toast({
+                    variant: 'destructive',
+                    title: 'Error',
+                    description: 'No se pudo generar la revelación. Por favor, intenta de nuevo.',
                 });
-        }
-    }, 500);
+                setQuizState('start');
+            }).finally(() => {
+                setIsAnswering(false);
+            });
+    }
   }, [answers, currentQuestionIndex, determineResult, toast, isAnswering]);
 
 
@@ -121,7 +118,7 @@ export default function Home() {
         return <LoadingSpinner />;
       case 'result':
         if (result) {
-          return <ResultScreen patriarch={result.patriarch} insight={result.insight} />;
+          return <ResultScreen patriarch={result.patriarch} insight={result.insight} onRestart={handleStart} />;
         }
         setQuizState('start');
         return <StartScreen onStart={handleStart} />;
@@ -132,11 +129,12 @@ export default function Home() {
 
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center p-4 md:p-8 parchment-background">
-      {quizState !== 'start' && quizState !== 'loading' && (
+      {quizState !== 'start' && quizState !== 'result' && (
         <Button 
           variant="ghost" 
           onClick={handleBack} 
           className="absolute top-4 left-4 z-20 text-foreground/70 hover:text-foreground hover:bg-transparent"
+          aria-label="Volver"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
           Volver
