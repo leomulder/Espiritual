@@ -364,7 +364,9 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                                 <li className="flex items-center"><CheckCircle className="h-5 w-5 mr-2 text-green-600" /> Plan de lectura guiada</li>
                                 <li className="flex items-center"><CheckCircle className="h-5 w-5 mr-2 text-green-600" /> Lectura y audio integrados</li>
                             </ul>
-                            <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10 hover:text-primary" onClick={() => setIsUpgradeModalOpen(true)}>Comenzar con el Básico</Button>
+                            <a href="https://pay.hotmart.com/K99537811Y?off=8h2ivhga&checkoutMode=10&bid=1762987180989" target="_blank" rel="noopener noreferrer" className="w-full">
+                                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10 hover:text-primary" onClick={() => setIsUpgradeModalOpen(true)}>Comenzar con el Básico</Button>
+                            </a>
                         </CardContent>
                     </Card>
                     <Card className="border-2 border-primary relative card-glow flex flex-col">
@@ -388,7 +390,9 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                                 <li className="flex items-start"><Book className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">BÔNUS #2:</span> Ebook Los Códigos da Oración <span className="text-xs line-through text-muted-foreground">(U$7)</span></div></li>
                             </ul>
                              <p className="text-sm text-green-700 font-semibold"><Star className="inline-block h-4 w-4 mr-1" /> Ahorras U$14 en bônus. ¡Ideal para una experiencia profunda!</p>
-                            <Button className="w-full cta-button text-base md:text-lg h-auto py-3 px-6" onClick={scrollToPricing}>Quiero el acceso completo al App</Button>
+                             <a href="https://pay.hotmart.com/K99537811Y?off=rtgmziqk&checkoutMode=10&bid=1762987298554" target="_blank" rel="noopener noreferrer" className="w-full">
+                                <Button className="w-full cta-button text-base md:text-lg h-auto py-3 px-6">Quiero el acceso completo al App</Button>
+                             </a>
                             <p className="text-xs text-muted-foreground pt-2">🕊️ Muchos que comenzaron con el básico luego desearon haber elegido el completo desde el principio.</p>
                         </CardContent>
                     </Card>
@@ -527,8 +531,12 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                     </ul>
                 </div>
                 <DialogFooter className="sm:flex-col sm:space-x-0 gap-2">
-                    <Button className="w-full cta-button text-lg h-auto py-3" onClick={scrollToPricing}>Sí, quiero el 20% de descuento</Button>
-                    <Button variant="ghost" onClick={() => setIsUpgradeModalOpen(false)} className="w-full">No gracias, continuar con el Básico</Button>
+                    <a href="https://pay.hotmart.com/K99537811Y?off=rtgmziqk&checkoutMode=10&bid=1762987298554" target="_blank" rel="noopener noreferrer" className="w-full">
+                        <Button className="w-full cta-button text-lg h-auto py-3">Sí, quiero el 20% de descuento</Button>
+                    </a>
+                    <a href="https://pay.hotmart.com/K99537811Y?off=8h2ivhga&checkoutMode=10&bid=1762987180989" target="_blank" rel="noopener noreferrer" className="w-full">
+                        <Button variant="ghost" onClick={() => setIsUpgradeModalOpen(false)} className="w-full">No gracias, continuar con el Básico</Button>
+                    </a>
                 </DialogFooter>
             </DialogContent>
         </Dialog>
