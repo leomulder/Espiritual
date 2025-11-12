@@ -173,8 +173,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
   
   const [targetDate, setTargetDate] = useState<Date>(() => {
     const date = new Date();
-    date.setDate(date.getDate() + 3);
-    date.setHours(23, 59, 59, 999);
+    date.setHours(date.getHours() + 3);
     return date;
   });
   
@@ -194,7 +193,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
 
 
   return (
-    <div className="w-full bg-white text-foreground animate-in fade-in duration-1000">
+    <div className="w-full bg-white text-foreground animate-in fade-in duration-500">
         {currentPurchase && <PurchaseNotification purchase={currentPurchase} onClose={() => setCurrentPurchase(null)} />}
         <BackToTopButton />
 
