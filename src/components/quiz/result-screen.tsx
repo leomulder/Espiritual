@@ -166,7 +166,14 @@ const BackToTopButton = () => {
 export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
   const authorImage = PlaceHolderImages.find(img => img.id === 'author-portrait');
   const appMockupImage = PlaceHolderImages.find(img => img.id === 'app-mockup');
-  const targetDate = new Date('2024-11-17T23:59:59');
+  
+  const [targetDate, setTargetDate] = useState<Date>(() => {
+    const date = new Date();
+    date.setDate(date.getDate() + 3);
+    date.setHours(23, 59, 59, 999);
+    return date;
+  });
+  
   const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState(false);
 
   const [currentPurchase, setCurrentPurchase] = useState<typeof recentPurchases[0] | null>(null);
@@ -213,7 +220,7 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
                 <h2 className="text-2xl md:text-3xl font-semibold text-foreground/80">Acceso especial limitado</h2>
             </div>
             <p className="mt-4 text-foreground/70">
-                Por motivos de derechos de distribución, el acceso a esta edición especial del aplicativo <strong className="font-semibold">Patriarcas y Profetas</strong> estará disponible solo hasta el domingo 17 de noviembre o hasta agotar las licencias actuales.
+                Por motivos de derechos de distribución, el acceso a esta edición especial del aplicativo <strong className="font-semibold">Patriarcas y Profetas</strong> estará disponible solo por tiempo limitado.
             </p>
             <div className="mt-6 text-3xl md:text-4xl font-bold text-primary tabular-nums">
                 <Countdown date={targetDate} />
@@ -482,5 +489,3 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
     </div>
   );
 }
-
-    
