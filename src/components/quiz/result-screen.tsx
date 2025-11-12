@@ -217,8 +217,8 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
               <Image
                 src={heroBookCoverImage.imageUrl}
                 alt={heroBookCoverImage.description}
-                width={300}
-                height={456}
+                width={600}
+                height={912}
                 className="rounded-lg shadow-2xl mx-auto"
                 data-ai-hint={heroBookCoverImage.imageHint}
                 priority
