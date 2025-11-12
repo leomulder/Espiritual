@@ -9,7 +9,7 @@
     {
       "id": "author-portrait",
       "description": "Portrait of a thoughtful middle-aged man in a suit, a biblical scholar.",
-      "imageUrl": "https://i.imgur.com/4KxL4A3.jpeg",
+      "imageUrl": "https://i.imgur.com/K1LTO2m.jpeg",
       "imageHint": "man portrait"
     },
     {
@@ -21,23 +21,23 @@
     {
       "id": "testimonial-carolina",
       "description": "Portrait of a woman from Mexico",
-      "imageUrl": "https://i.imgur.com/t9G1E2w.jpeg",
+      "imageUrl": "https://i.imgur.com/4zYgC6j.jpeg",
       "imageHint": "woman portrait"
-    },
-    {
-      "id": "testimonial-luis",
-      "description": "Portrait of a man from Peru",
-      "imageUrl": "https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=600",
-      "imageHint": "man portrait"
     },
     {
       "id": "testimonial-maria",
       "description": "Portrait of a woman from Colombia",
-      "imageUrl": "https://i.imgur.com/t9G1E2w.jpeg",
+      "imageUrl": "https://i.imgur.com/4zYgC6j.jpeg",
       "imageHint": "woman portrait"
     },
     {
       "id": "testimonial-andres",
+      "description": "Portrait of a man from Peru",
+      "imageUrl": "https://i.imgur.com/s6n5F9n.jpeg",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "testimonial-andres-2",
       "description": "Portrait of a man from Chile",
       "imageUrl": "https://i.imgur.com/4dJp15V.jpeg",
       "imageHint": "man portrait"

@@ -31,6 +31,7 @@ import {
     BookUser,
     MessageSquareQuote,
     Sparkles,
+    Check,
 } from 'lucide-react';
 import Countdown from 'react-countdown';
 import { useEffect, useState } from 'react';
@@ -48,19 +49,19 @@ const testimonials = [
         id: "testimonial-carolina"
     },
     {
-        quote: "Cada página me hizo sentir más cerca de Dios.",
-        author: "Luis A., Perú",
-        id: "testimonial-luis"
-    },
-    {
         quote: "Este aplicativo llegó justo cuando más lo necesitaba.",
         author: "María José R., Colombia",
         id: "testimonial-maria"
     },
+     {
+        quote: "Cada página me hizo sentir más cerca de Dios.",
+        author: "Andrés V., Perú",
+        id: "testimonial-andres"
+    },
     {
         quote: "Usarlo fue como volver a escuchar la voz de Dios después de años de silencio.",
         author: "Andrés V., Chile",
-        id: "testimonial-andres"
+        id: "testimonial-andres-2"
     }
 ];
 
@@ -207,14 +208,15 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
       {/* SECCIÓN 4 — Autoridad */}
       <section className="py-16 px-6 bg-background">
         <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 md:gap-12 items-center">
-          <div className="flex justify-center md:justify-end">
+          <div className="flex justify-center md:justify-start">
             {authorImage && (
               <Image
                 src={authorImage.imageUrl}
                 alt="Dr. Samuel Ortega"
-                width={180}
-                height={180}
-                className="rounded-full border-4 border-primary/50 shadow-lg"
+                width={200}
+                height={200}
+                className="rounded-xl shadow-lg"
+                style={{maxWidth: '200px'}}
                 data-ai-hint={authorImage.imageHint}
               />
             )}
@@ -275,7 +277,7 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
                         <CardContent className="space-y-6">
                             <p className="text-4xl font-bold">U$11,90 <span className="text-xl line-through text-muted-foreground">U$18,90</span></p>
                              <ul className="space-y-2 text-left text-foreground/80">
-                                <li className="flex items-start"><CheckCircle className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Todo lo del Plan Básico</span></div></li>
+                                <li className="flex items-start"><Check className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Todo lo del Plan Básico</span></div></li>
                                 <li className="flex items-start"><BookUser className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Módulo de anotaciones</span></div></li>
                                 <li className="flex items-start"><MessageSquareQuote className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Comentarios del autor</span></div></li>
                                 <li className="flex items-start"><Sparkles className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Reflexiones diarias guiadas</span></div></li>
@@ -321,8 +323,8 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
                                     <Card>
                                         <CardContent className="flex flex-col items-center justify-center p-6 text-center">
                                             {image && (
-                                                <Avatar className="w-20 h-20 mb-4 border-2 border-primary/50">
-                                                    <AvatarImage src={image.imageUrl} alt={testimonial.author} />
+                                                <Avatar className="w-20 h-20 mb-4 border-4" style={{borderColor: '#C89D59'}}>
+                                                    <AvatarImage src={image.imageUrl} alt={testimonial.author} className="object-cover" loading="lazy" />
                                                     <AvatarFallback>{testimonial.author.substring(0,2)}</AvatarFallback>
                                                 </Avatar>
                                             )}
@@ -401,3 +403,5 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
     </div>
   );
 }
+
+    
