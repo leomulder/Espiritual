@@ -34,6 +34,7 @@ import {
 } from 'lucide-react';
 import Countdown from 'react-countdown';
 import { useEffect, useState } from 'react';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 
 interface ResultScreenProps {
   patriarch: Patriarch;
@@ -43,19 +44,23 @@ interface ResultScreenProps {
 const testimonials = [
     {
         quote: "Nunca imaginé que entender las pruebas de Abraham me haría entender las mías.",
-        author: "Carolina M., México"
+        author: "Carolina M., México",
+        id: "testimonial-carolina"
     },
     {
         quote: "Cada página me hizo sentir más cerca de Dios.",
-        author: "Luis A., Perú"
+        author: "Luis A., Perú",
+        id: "testimonial-luis"
     },
     {
         quote: "Este aplicativo llegó justo cuando más lo necesitaba.",
-        author: "María José R., Colombia"
+        author: "María José R., Colombia",
+        id: "testimonial-maria"
     },
     {
         quote: "Usarlo fue como volver a escuchar la voz de Dios después de años de silencio.",
-        author: "Andrés V., Chile"
+        author: "Andrés V., Chile",
+        id: "testimonial-andres"
     }
 ];
 
@@ -277,7 +282,7 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
                                 <li className="flex items-start"><CheckCircle className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Prioridad en actualizaciones</span></div></li>
                             </ul>
                              <p className="text-sm text-green-700 font-semibold"><Star className="inline-block h-4 w-4 mr-1" /> Ideal para una experiencia profunda.</p>
-                            <Button className="w-full cta-button text-base md:text-lg h-auto py-4">Quiero el acceso completo al App</Button>
+                            <Button className="w-full cta-button text-base md:text-lg h-auto py-3 px-6 whitespace-nowrap">Quiero el acceso completo al App</Button>
                             <p className="text-xs text-muted-foreground pt-2">🕊️ Muchos que comenzaron con el básico luego desearon haber elegido el completo desde el principio.</p>
                         </CardContent>
                     </Card>
@@ -308,18 +313,26 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
                     className="w-full"
                 >
                     <CarouselContent>
-                        {testimonials.map((testimonial, index) => (
+                        {testimonials.map((testimonial, index) => {
+                            const image = PlaceHolderImages.find(img => img.id === testimonial.id);
+                            return (
                             <CarouselItem key={index}>
                                 <div className="p-2">
                                     <Card>
                                         <CardContent className="flex flex-col items-center justify-center p-6 text-center">
+                                            {image && (
+                                                <Avatar className="w-20 h-20 mb-4 border-2 border-primary/50">
+                                                    <AvatarImage src={image.imageUrl} alt={testimonial.author} />
+                                                    <AvatarFallback>{testimonial.author.substring(0,2)}</AvatarFallback>
+                                                </Avatar>
+                                            )}
                                             <p className="text-lg italic">"{testimonial.quote}"</p>
                                             <p className="mt-4 font-semibold text-primary">— {testimonial.author}</p>
                                         </CardContent>
                                     </Card>
                                 </div>
                             </CarouselItem>
-                        ))}
+                        )})}
                     </CarouselContent>
                     <CarouselPrevious className="hidden sm:flex" />
                     <CarouselNext className="hidden sm:flex" />

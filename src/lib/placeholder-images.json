@@ -9,7 +9,7 @@
     {
       "id": "author-portrait",
       "description": "Portrait of a thoughtful middle-aged man in a suit, a biblical scholar.",
-      "imageUrl": "https://images.unsplash.com/photo-1594744806549-83a8f334d943?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtaWRkbGUlMjBhZ2VkJTIwbWFuJTIwc3VpdCUyMHBvcnRyYWl0fGVufDB8fHx8MTc2MzE4MjY3NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://storage.googleapis.com/aif-stg-images/public/1763189914077-image_0.jpeg",
       "imageHint": "man portrait"
     },
     {
@@ -17,6 +17,30 @@
       "description": "Mockup of a spiritual study app on a smartphone.",
       "imageUrl": "https://images.unsplash.com/photo-1627542557169-5ed71c66ed85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhcHAlMjBtb2NrdXB8ZW58MHx8fHwxNzYyOTQ1ODMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "app mockup"
+    },
+    {
+      "id": "testimonial-carolina",
+      "description": "Portrait of a woman from Mexico",
+      "imageUrl": "https://storage.googleapis.com/aif-stg-images/public/1763189914080-image_2.jpeg",
+      "imageHint": "woman portrait"
+    },
+    {
+      "id": "testimonial-luis",
+      "description": "Portrait of a man from Peru",
+      "imageUrl": "https://storage.googleapis.com/aif-stg-images/public/1763189914080-image_3.jpeg",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "testimonial-maria",
+      "description": "Portrait of a woman from Colombia",
+      "imageUrl": "https://storage.googleapis.com/aif-stg-images/public/1763189914080-image_4.jpeg",
+      "imageHint": "woman portrait"
+    },
+    {
+      "id": "testimonial-andres",
+      "description": "Portrait of a man from Chile",
+      "imageUrl": "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=600",
+      "imageHint": "man portrait"
     }
   ]
 }
