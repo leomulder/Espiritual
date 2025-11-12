@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { patriarchData } from '@/lib/quiz-data';
 import type { Patriarch } from '@/lib/quiz-data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import {
@@ -20,19 +19,18 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import {
-  HeartHandshake,
-  BookOpen,
-  Eye,
-  Sparkles,
-  ShieldCheck,
-  CheckCircle,
-  Clock,
-  ArrowUp,
-  Smartphone,
-  Headphones,
-  FileText,
-  Star,
-  CalendarCheck
+    ShieldCheck,
+    CheckCircle,
+    Clock,
+    ArrowUp,
+    Smartphone,
+    Headphones,
+    FileText,
+    Star,
+    CalendarCheck,
+    BookUser,
+    MessageSquareQuote,
+    Sparkles,
 } from 'lucide-react';
 import Countdown from 'react-countdown';
 import { useEffect, useState } from 'react';
@@ -191,7 +189,7 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
               />
             )}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mt-12 text-center">
-                <div className="flex flex-col items-center"><BookOpen className="h-8 w-8 text-primary/80" /><p className="mt-2 text-sm font-medium">Lectura guiada</p></div>
+                <div className="flex flex-col items-center"><BookUser className="h-8 w-8 text-primary/80" /><p className="mt-2 text-sm font-medium">Lectura guiada</p></div>
                 <div className="flex flex-col items-center"><Headphones className="h-8 w-8 text-primary/80" /><p className="mt-2 text-sm font-medium">Versión en audio</p></div>
                 <div className="flex flex-col items-center"><FileText className="h-8 w-8 text-primary/80" /><p className="mt-2 text-sm font-medium">Notas personales</p></div>
                 <div className="flex flex-col items-center"><Star className="h-8 w-8 text-primary/80" /><p className="mt-2 text-sm font-medium">Reflexiones diarias</p></div>
@@ -273,13 +271,13 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
                             <p className="text-4xl font-bold">U$11,90 <span className="text-xl line-through text-muted-foreground">U$18,90</span></p>
                              <ul className="space-y-2 text-left text-foreground/80">
                                 <li className="flex items-start"><CheckCircle className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Todo lo del Plan Básico</span></div></li>
-                                <li className="flex items-start"><CheckCircle className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Módulo de anotaciones</span></div></li>
-                                <li className="flex items-start"><CheckCircle className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Comentarios del autor</span></div></li>
-                                <li className="flex items-start"><CheckCircle className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Reflexiones diarias guiadas</span></div></li>
+                                <li className="flex items-start"><BookUser className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Módulo de anotaciones</span></div></li>
+                                <li className="flex items-start"><MessageSquareQuote className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Comentarios del autor</span></div></li>
+                                <li className="flex items-start"><Sparkles className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Reflexiones diarias guiadas</span></div></li>
                                 <li className="flex items-start"><CheckCircle className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Prioridad en actualizaciones</span></div></li>
                             </ul>
                              <p className="text-sm text-green-700 font-semibold"><Star className="inline-block h-4 w-4 mr-1" /> Ideal para una experiencia profunda.</p>
-                            <Button className="w-full cta-button text-lg h-auto py-4">Quiero el acceso completo al App</Button>
+                            <Button className="w-full cta-button text-base md:text-lg h-auto py-4">Quiero el acceso completo al App</Button>
                             <p className="text-xs text-muted-foreground pt-2">🕊️ Muchos que comenzaron con el básico luego desearon haber elegido el completo desde el principio.</p>
                         </CardContent>
                     </Card>
@@ -390,5 +388,3 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
     </div>
   );
 }
-
-    
