@@ -19,6 +19,14 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogDescription,
+    DialogFooter
+} from '@/components/ui/dialog';
+import {
     ShieldCheck,
     CheckCircle,
     Clock,
@@ -32,10 +40,12 @@ import {
     MessageSquareQuote,
     Sparkles,
     Check,
+    ShoppingCart,
 } from 'lucide-react';
 import Countdown from 'react-countdown';
 import { useEffect, useState } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import { cn } from '@/lib/utils';
 
 interface ResultScreenProps {
   patriarch: Patriarch;
@@ -88,6 +98,34 @@ const faqItems = [
     }
 ]
 
+const recentPurchases = [
+    { name: 'Sofía L.', location: 'Bogotá, CO', plan: 'Plan Completo', time: 'hace 1 minuto' },
+    { name: 'Mateo R.', location: 'CDMX, MX', plan: 'Plan Completo', time: 'hace 3 minutos' },
+    { name: 'Valentina G.', location: 'Lima, PE', plan: 'Plan Completo', time: 'hace 5 minutos' },
+    { name: 'Lucas F.', location: 'Santiago, CL', plan: 'Plan Básico', time: 'hace 8 minutos' },
+    { name: 'Isabella C.', location: 'Medellín, CO', plan: 'Plan Completo', time: 'hace 10 minutos' },
+];
+
+const PurchaseNotification = ({ purchase, onClose }: { purchase: typeof recentPurchases[0], onClose: () => void }) => {
+    useEffect(() => {
+        const timer = setTimeout(onClose, 5000);
+        return () => clearTimeout(timer);
+    }, [onClose]);
+
+    return (
+        <div className="fixed bottom-4 left-4 z-50 bg-background/80 backdrop-blur-sm border border-border rounded-lg shadow-xl p-4 flex items-center gap-4 animate-in fade-in slide-in-from-bottom-10 duration-500">
+            <div className="bg-primary/10 text-primary p-2 rounded-full">
+                <ShoppingCart className="h-6 w-6" />
+            </div>
+            <div>
+                <p className="font-semibold text-sm text-foreground">{purchase.name} de {purchase.location}</p>
+                <p className="text-xs text-muted-foreground">¡Compró el {purchase.plan} {purchase.time}!</p>
+            </div>
+        </div>
+    );
+};
+
+
 const BackToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -129,9 +167,24 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
   const authorImage = PlaceHolderImages.find(img => img.id === 'author-portrait');
   const appMockupImage = PlaceHolderImages.find(img => img.id === 'app-mockup');
   const targetDate = new Date('2024-11-17T23:59:59');
+  const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState(false);
+
+  const [currentPurchase, setCurrentPurchase] = useState<typeof recentPurchases[0] | null>(null);
+  const [purchaseIndex, setPurchaseIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+        setCurrentPurchase(recentPurchases[purchaseIndex]);
+        setPurchaseIndex((prevIndex) => (prevIndex + 1) % recentPurchases.length);
+    }, 12000); // Show a new notification every 12 seconds
+
+    return () => clearInterval(interval);
+  }, [purchaseIndex]);
+
 
   return (
     <div className="w-full bg-white text-foreground">
+        {currentPurchase && <PurchaseNotification purchase={currentPurchase} onClose={() => setCurrentPurchase(null)} />}
         <BackToTopButton />
 
       {/* SECCIÓN 1 — Hero */}
@@ -264,10 +317,10 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
                                 <li className="flex items-center"><CheckCircle className="h-5 w-5 mr-2 text-green-600" /> Plan de lectura guiada</li>
                                 <li className="flex items-center"><CheckCircle className="h-5 w-5 mr-2 text-green-600" /> Lectura y audio integrados</li>
                             </ul>
-                            <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10 hover:text-primary">Comenzar con el Básico</Button>
+                            <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10 hover:text-primary" onClick={() => setIsUpgradeModalOpen(true)}>Comenzar con el Básico</Button>
                         </CardContent>
                     </Card>
-                    <Card className="border-2 border-primary shadow-2xl shadow-primary/20 relative">
+                    <Card className="border-2 border-primary relative overflow-hidden card-glow">
                          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
                             Recomendado
                         </div>
@@ -323,7 +376,7 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
                                     <Card>
                                         <CardContent className="flex flex-col items-center justify-center p-6 text-center">
                                             {image && (
-                                                <Avatar className="w-20 h-20 mb-4 border-4" style={{borderColor: '#C89D59'}}>
+                                                <Avatar className="w-20 h-20 mb-4 border-4" style={{borderColor: '#C49A6C'}}>
                                                     <AvatarImage src={image.imageUrl} alt={testimonial.author} className="object-cover" loading="lazy" />
                                                     <AvatarFallback>{testimonial.author.substring(0,2)}</AvatarFallback>
                                                 </Avatar>
@@ -400,9 +453,34 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
              <p>© 2025 Patriarcas y Profetas. Todos los derechos reservados.</p>
           </div>
       </footer>
+
+        <Dialog open={isUpgradeModalOpen} onOpenChange={setIsUpgradeModalOpen}>
+            <DialogContent className="max-w-lg">
+                <DialogHeader>
+                    <DialogTitle className="text-2xl text-center font-bold text-primary">¡Espera! Una Oferta Única Para Ti</DialogTitle>
+                    <DialogDescription className="text-center text-lg pt-2">
+                        Vemos que tienes interés. Por eso, te ofrecemos un <strong className="text-primary font-bold">20% de DESCUENTO</strong> en el Plan Completo.
+                    </DialogDescription>
+                </DialogHeader>
+                <div className="py-4">
+                    <p className="text-center text-5xl font-bold text-foreground">U$9,52 <span className="text-2xl line-through text-muted-foreground">U$11,90</span></p>
+                    <p className="text-center text-green-600 font-semibold mt-2">¡Ahorras un 20% solo por hoy!</p>
+                    <ul className="mt-6 space-y-2 text-muted-foreground">
+                        <li className="flex items-start"><Check className="h-5 w-5 mr-2 text-green-500 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Todo lo del Plan Básico</span> y mucho más.</div></li>
+                        <li className="flex items-start"><BookUser className="h-5 w-5 mr-2 text-green-500 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Módulo de Anotaciones:</span> Guarda tus revelaciones personales.</div></li>
+                        <li className="flex items-start"><MessageSquareQuote className="h-5 w-5 mr-2 text-green-500 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Comentarios del Autor:</span> Accede a una profundidad teológica única.</div></li>
+                        <li className="flex items-start"><Sparkles className="h-5 w-5 mr-2 text-green-500 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Reflexiones Diarias:</span> Impulsa tu crecimiento espiritual cada día.</div></li>
+                    </ul>
+                </div>
+                <DialogFooter className="sm:flex-col sm:space-x-0 gap-2">
+                    <Button className="w-full cta-button text-lg h-auto py-3">Sí, quiero el 20% de descuento</Button>
+                    <Button variant="ghost" onClick={() => setIsUpgradeModalOpen(false)} className="w-full">No gracias, continuar con el Básico</Button>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
+
     </div>
   );
 }
 
-    
     
