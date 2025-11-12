@@ -9,7 +9,7 @@
     {
       "id": "author-portrait",
       "description": "Portrait of a thoughtful middle-aged man in a suit, a biblical scholar.",
-      "imageUrl": "https://storage.googleapis.com/aif-stg-images/public/1763189914077-image_0.jpeg",
+      "imageUrl": "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?q=80&w=1080",
       "imageHint": "man portrait"
     },
     {
@@ -21,19 +21,19 @@
     {
       "id": "testimonial-carolina",
       "description": "Portrait of a woman from Mexico",
-      "imageUrl": "https://storage.googleapis.com/aif-stg-images/public/1763189914080-image_2.jpeg",
+      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600",
       "imageHint": "woman portrait"
     },
     {
       "id": "testimonial-luis",
       "description": "Portrait of a man from Peru",
-      "imageUrl": "https://storage.googleapis.com/aif-stg-images/public/1763189914080-image_3.jpeg",
+      "imageUrl": "https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=600",
       "imageHint": "man portrait"
     },
     {
       "id": "testimonial-maria",
       "description": "Portrait of a woman from Colombia",
-      "imageUrl": "https://storage.googleapis.com/aif-stg-images/public/1763189914080-image_4.jpeg",
+      "imageUrl": "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=600",
       "imageHint": "woman portrait"
     },
     {
