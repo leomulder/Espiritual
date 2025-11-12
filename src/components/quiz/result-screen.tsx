@@ -515,12 +515,12 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                 <DialogHeader>
                     <DialogTitle className="text-2xl text-center font-bold text-primary">¡Espera! Una Oferta Única Para Ti</DialogTitle>
                     <DialogDescription className="text-center text-lg pt-2">
-                        Vemos que tienes interés. Por eso, te ofrecemos un <strong className="text-primary font-bold">20% de DESCUENTO</strong> en el Plan Completo.
+                        Vemos que tienes interés. Por eso, te ofrecemos un <strong className="text-primary font-bold">DESCUENTO de casi 25%</strong> en el Plan Completo.
                     </DialogDescription>
                 </DialogHeader>
                 <div className="py-4">
-                    <p className="text-center text-5xl font-bold text-foreground">U$9,52 <span className="text-2xl line-through text-muted-foreground">U$11,90</span></p>
-                    <p className="text-center text-green-600 font-semibold mt-2">¡Ahorras un 20% solo por hoy!</p>
+                    <p className="text-center text-5xl font-bold text-foreground">U$9,00 <span className="text-2xl line-through text-muted-foreground">U$11,90</span></p>
+                    <p className="text-center text-green-600 font-semibold mt-2">¡Ahorra casi un 25% solo por hoy!</p>
                     <ul className="mt-6 space-y-2 text-muted-foreground">
                         <li className="flex items-start"><Check className="h-5 w-5 mr-2 text-green-500 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Todo lo del Plan Básico</span> y mucho más.</div></li>
                         <li className="flex items-start"><BookUser className="h-5 w-5 mr-2 text-green-500 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Módulo de Anotaciones:</span> Guarda tus revelaciones personales.</div></li>
@@ -532,7 +532,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                 </div>
                 <DialogFooter className="sm:flex-col sm:space-x-0 gap-2">
                     <a href="https://pay.hotmart.com/K99537811Y?off=rtgmziqk&checkoutMode=10&bid=1762987298554" target="_blank" rel="noopener noreferrer" className="w-full">
-                        <Button className="w-full cta-button text-lg h-auto py-3">Sí, quiero el 20% de descuento</Button>
+                        <Button className="w-full cta-button text-lg h-auto py-3">Sí, quiero el descuento</Button>
                     </a>
                     <a href="https://pay.hotmart.com/K99537811Y?off=8h2ivhga&checkoutMode=10&bid=1762987180989" target="_blank" rel="noopener noreferrer" className="w-full">
                         <Button variant="ghost" onClick={() => setIsUpgradeModalOpen(false)} className="w-full">No gracias, continuar con el Básico</Button>
