@@ -139,7 +139,7 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
             Este libro revela los secretos que Abraham, Isaac y Jacob aprendieron cuando el silencio de Dios parecía definitivo.
             Ahora tú también puedes comprender el propósito detrás de cada prueba.
           </p>
-          <Button size="lg" className="mt-10 cta-button">
+          <Button size="lg" className="mt-10 cta-button w-full md:w-auto">
             Descargar ahora — Comienza tu viaje espiritual
           </Button>
           <p className="mt-6 text-sm text-foreground/60">
@@ -167,7 +167,7 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
             <p className="mt-2 text-foreground/70">
                 No esperes. Muchos ya lo están descargando en este momento.
             </p>
-            <Button size="lg" className="mt-8 cta-button">
+            <Button size="lg" className="mt-8 cta-button w-full md:w-auto">
                 Asegurar mi copia ahora
             </Button>
         </div>
@@ -235,7 +235,7 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
           <p className="mt-8 text-2xl font-semibold italic text-primary">
             🕯️ “A veces, perder el momento también es una decisión.”
           </p>
-          <Button size="lg" className="mt-10 cta-button">
+          <Button size="lg" className="mt-10 cta-button w-full md:w-auto">
             Descubrir ahora lo que los Patriarcas sabían
           </Button>
         </div>
@@ -352,7 +352,7 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
             Hoy tú tienes la misma oportunidad de escuchar el llamado.
             No ignores esa voz interior que te trajo hasta aquí.
           </p>
-          <Button size="lg" className="mt-10 cta-button text-lg h-auto py-4">
+          <Button size="lg" className="mt-10 cta-button text-lg h-auto py-4 w-full md:w-auto">
             Sí, quiero comenzar mi despertar espiritual — Descargar ahora
           </Button>
         </div>
