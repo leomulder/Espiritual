@@ -41,9 +41,12 @@ import {
     Sparkles,
     Check,
     ShoppingCart,
+    Gift,
+    Book,
+    Users
 } from 'lucide-react';
 import Countdown from 'react-countdown';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { cn } from '@/lib/utils';
 
@@ -87,7 +90,7 @@ const faqItems = [
     },
     {
         question: "¿Qué diferencia hay entre el plan básico y el completo?",
-        answer: "El plan completo desbloquea herramientas de crecimiento espiritual como las anotaciones personales, reflexiones diarias y comentarios del autor. Es una experiencia más profunda y guiada."
+        answer: "El plan completo desbloquea herramientas de crecimiento espiritual como las anotaciones personales, reflexiones diarias, comentarios del autor y acceso a la comunidad y materiales extra. Es una experiencia más profunda y guiada."
     },
     {
         question: "¿Y si no me gusta la experiencia?",
@@ -171,16 +174,16 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
   const authorImage = PlaceHolderImages.find(img => img.id === 'author-portrait');
   const appMockupImage = PlaceHolderImages.find(img => img.id === 'app-mockup');
   
-  const [targetDate, setTargetDate] = useState<Date>(() => {
-    const date = new Date();
-    date.setHours(date.getHours() + 3);
-    return date;
-  });
+  const [countdownDate, setCountdownDate] = useState<number>(Date.now() + 59 * 60 * 1000);
   
   const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState(false);
 
   const [currentPurchase, setCurrentPurchase] = useState<typeof recentPurchases[0] | null>(null);
   const [purchaseIndex, setPurchaseIndex] = useState(0);
+
+  const scrollToPricing = () => {
+    document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -193,7 +196,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
 
 
   return (
-    <div className="w-full bg-white text-foreground animate-in fade-in duration-500">
+    <div className="w-full bg-white text-foreground animate-in fade-in duration-300">
         {currentPurchase && <PurchaseNotification purchase={currentPurchase} onClose={() => setCurrentPurchase(null)} />}
         <BackToTopButton />
 
@@ -206,7 +209,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
           <p className="mt-6 text-lg md:text-xl text-foreground/70">
             No es solo un libro: es una experiencia digital guiada. Descubre los secretos que Abraham, Isaac y Jacob aprendieron cuando el silencio de Dios parecía definitivo y comprende el propósito detrás de cada prueba.
           </p>
-          <Button size="lg" className="mt-10 cta-button w-full md:w-auto text-lg h-auto py-4">
+          <Button size="lg" className="mt-10 cta-button w-full md:w-auto text-lg h-auto py-4" onClick={scrollToPricing}>
             Acceder al App ahora
           </Button>
           <p className="mt-6 text-sm text-foreground/60">
@@ -219,14 +222,11 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
       <section className="py-16 px-6 bg-amber-50">
         <div className="max-w-3xl mx-auto text-center">
             <div className="flex justify-center items-center gap-3">
-                <Clock className="h-8 w-8 text-primary/80" />
-                <h2 className="text-2xl md:text-3xl font-semibold text-foreground/80">Acceso especial limitado</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-foreground/80">Acceso especial con <span className="text-red-600">50% OFF</span> se cierra en:</h2>
             </div>
-            <p className="mt-4 text-foreground/70">
-                Por motivos de derechos de distribución, el acceso a esta edición especial del aplicativo <strong className="font-semibold">Patriarcas y Profetas</strong> estará disponible solo por tiempo limitado.
-            </p>
-            <div className="mt-6 text-3xl md:text-4xl font-bold text-primary tabular-nums">
-                <Countdown date={targetDate} />
+            <div className="mt-6 flex justify-center items-center gap-2 text-4xl md:text-5xl font-bold text-red-600 tabular-nums">
+                <Clock className="h-10 w-10" />
+                <Countdown date={countdownDate} />
             </div>
              <p className="mt-6 text-lg text-foreground/80 font-semibold">
                 Esta no es una oferta más — es una oportunidad espiritual que muchos dejarán pasar sin darse cuenta.
@@ -234,7 +234,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
             <p className="mt-2 text-foreground/70">
                 No esperes. Muchos ya se están uniendo en este momento.
             </p>
-            <Button size="lg" className="mt-8 cta-button w-full md:w-auto text-lg h-auto py-4">
+            <Button size="lg" className="mt-8 cta-button w-full md:w-auto text-lg h-auto py-4" onClick={scrollToPricing}>
                 Asegurar mi acceso ahora
             </Button>
         </div>
@@ -255,6 +255,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                 height={450}
                 className="rounded-lg shadow-2xl mx-auto"
                 data-ai-hint={appMockupImage.imageHint}
+                loading="lazy"
               />
             )}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mt-12 text-center">
@@ -281,6 +282,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                 className="rounded-xl shadow-lg"
                 style={{maxWidth: '200px'}}
                 data-ai-hint={authorImage.imageHint}
+                loading="lazy"
               />
             )}
           </div>
@@ -305,14 +307,14 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
           <p className="mt-8 text-2xl font-semibold italic text-primary">
             🕯️ “A veces, perder el momento también es una decisión.”
           </p>
-          <Button size="lg" className="mt-10 cta-button w-full md:w-auto text-lg h-auto py-4">
+          <Button size="lg" className="mt-10 cta-button w-full md:w-auto text-lg h-auto py-4" onClick={scrollToPricing}>
             Comenzar mi estudio guiado
           </Button>
         </div>
       </section>
 
       {/* SECCIÓN 6 — Planes */}
-        <section className="py-16 px-6 bg-background">
+        <section id="pricing-section" className="py-16 px-6 bg-background">
             <div className="max-w-5xl mx-auto text-center">
                 <h2 className="text-3xl md:text-4xl font-semibold text-foreground/90 mb-12">Elige cómo comenzar tu viaje espiritual</h2>
                 <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -330,7 +332,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                             <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10 hover:text-primary" onClick={() => setIsUpgradeModalOpen(true)}>Comenzar con el Básico</Button>
                         </CardContent>
                     </Card>
-                    <Card className="border-2 border-primary relative card-glow flex flex-col">
+                    <Card className="border-2 border-primary relative card-glow flex flex-col overflow-visible">
                          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
                             Recomendado
                         </div>
@@ -338,15 +340,19 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                             <CardTitle className="text-2xl">Plan Completo</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-6 flex flex-col flex-grow">
-                            <p className="text-4xl font-bold">U$11,90 <span className="text-xl line-through text-muted-foreground">U$18,90</span></p>
+                             <div className="bg-primary/10 border-l-4 border-primary text-primary-foreground p-3 rounded-r-lg">
+                                <p className="font-semibold text-sm text-center">¡Más de 1895 personas ya eligieron este plano!</p>
+                             </div>
+                            <p className="text-4xl font-bold">U$11,90 <span className="text-xl line-through text-muted-foreground">U$25,90</span></p>
                              <ul className="space-y-2 text-left text-foreground/80 flex-grow">
                                 <li className="flex items-start"><Check className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Todo lo del Plan Básico</span></div></li>
                                 <li className="flex items-start"><BookUser className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Módulo de anotaciones</span></div></li>
                                 <li className="flex items-start"><MessageSquareQuote className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Comentarios del autor</span></div></li>
                                 <li className="flex items-start"><Sparkles className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Reflexiones diarias guiadas</span></div></li>
-                                <li className="flex items-start"><CheckCircle className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Prioridad en actualizaciones</span></div></li>
+                                <li className="flex items-start"><Gift className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">BÔNUS #1:</span> Comunidad VIP en Whatsapp <span className="text-xs line-through text-muted-foreground">(U$7)</span></div></li>
+                                <li className="flex items-start"><Book className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">BÔNUS #2:</span> Ebook Los Códigos da Oración <span className="text-xs line-through text-muted-foreground">(U$7)</span></div></li>
                             </ul>
-                             <p className="text-sm text-green-700 font-semibold"><Star className="inline-block h-4 w-4 mr-1" /> Ideal para una experiencia profunda.</p>
+                             <p className="text-sm text-green-700 font-semibold"><Star className="inline-block h-4 w-4 mr-1" /> Ahorras U$14 en bônus. ¡Ideal para una experiencia profunda!</p>
                             <Button className="w-full cta-button text-base md:text-lg h-auto py-3 px-6 whitespace-nowrap">Quiero el acceso completo al App</Button>
                             <p className="text-xs text-muted-foreground pt-2">🕊️ Muchos que comenzaron con el básico luego desearon haber elegido el completo desde el principio.</p>
                         </CardContent>
@@ -432,7 +438,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
             Hoy tú tienes la misma oportunidad de escuchar el llamado.
             No ignores esa voz interior que te trajo hasta aquí.
           </p>
-          <Button size="lg" className="mt-10 cta-button text-lg h-auto py-4 w-full md:w-auto">
+          <Button size="lg" className="mt-10 cta-button text-lg h-auto py-4 w-full md:w-auto" onClick={scrollToPricing}>
             Sí, quiero comenzar mi despertar espiritual
           </Button>
         </div>
@@ -481,6 +487,8 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                         <li className="flex items-start"><BookUser className="h-5 w-5 mr-2 text-green-500 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Módulo de Anotaciones:</span> Guarda tus revelaciones personales.</div></li>
                         <li className="flex items-start"><MessageSquareQuote className="h-5 w-5 mr-2 text-green-500 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Comentarios del Autor:</span> Accede a una profundidad teológica única.</div></li>
                         <li className="flex items-start"><Sparkles className="h-5 w-5 mr-2 text-green-500 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Reflexiones Diarias:</span> Impulsa tu crecimiento espiritual cada día.</div></li>
+                        <li className="flex items-start"><Users className="h-5 w-5 mr-2 text-green-500 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Bônus: Comunidad VIP</span></div></li>
+                        <li className="flex items-start"><Book className="h-5 w-5 mr-2 text-green-500 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Bônus: Ebook Códigos da Oração</span></div></li>
                     </ul>
                 </div>
                 <DialogFooter className="sm:flex-col sm:space-x-0 gap-2">
@@ -493,3 +501,5 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
     </div>
   );
 }
+
+    
