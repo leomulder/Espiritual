@@ -178,8 +178,8 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
   const [countdownDate, setCountdownDate] = useState<number>(0);
 
   useEffect(() => {
-    // Set the countdown to 59 minutes from when the component mounts.
-    setCountdownDate(Date.now() + 59 * 60 * 1000);
+    // Set the countdown to 3 hours from when the component mounts.
+    setCountdownDate(Date.now() + 3 * 60 * 60 * 1000);
   }, []);
   
   const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState(false);
@@ -213,13 +213,13 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
             ✨ Lo que los Patriarcas descubrieron puede transformar tu fe… incluso en estos tiempos.
           </h1>
           {heroBookCoverImage && (
-            <div className="my-8">
+            <div className="my-8 inline-block p-2 bg-card rounded-2xl shadow-2xl border-4 border-primary">
               <Image
                 src={heroBookCoverImage.imageUrl}
                 alt={heroBookCoverImage.description}
                 width={1200}
                 height={1824}
-                className="rounded-lg shadow-2xl mx-auto"
+                className="rounded-lg mx-auto"
                 data-ai-hint={heroBookCoverImage.imageHint}
                 priority
               />
@@ -267,15 +267,17 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                A través del aplicativo exclusivo Patriarcas y Profetas, podrás leer, escuchar, anotar tus reflexiones y seguir un plan de estudio personalizado. Todo en un solo lugar.
             </p>
              {appMockupImage && (
-              <Image
-                src={appMockupImage.imageUrl}
-                alt="Aplicativo Patriarcas y Profetas"
-                width={600}
-                height={450}
-                className="rounded-lg shadow-2xl mx-auto"
-                data-ai-hint={appMockupImage.imageHint}
-                loading="lazy"
-              />
+              <div className="inline-block p-1 bg-card rounded-lg shadow-2xl border-2 border-primary">
+                <Image
+                    src={appMockupImage.imageUrl}
+                    alt="Aplicativo Patriarcas y Profetas"
+                    width={600}
+                    height={450}
+                    className="rounded-md mx-auto"
+                    data-ai-hint={appMockupImage.imageHint}
+                    loading="lazy"
+                />
+              </div>
             )}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mt-12 text-center">
                 <div className="flex flex-col items-center"><BookUser className="h-8 w-8 text-primary/80" /><p className="mt-2 text-sm font-medium">Lectura guiada</p></div>
@@ -293,16 +295,18 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
         <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 md:gap-12 items-center">
           <div className="flex justify-center md:justify-start">
             {authorImage && (
-              <Image
-                src={authorImage.imageUrl}
-                alt="Dr. Samuel Ortega"
-                width={200}
-                height={200}
-                className="rounded-xl shadow-lg"
-                style={{maxWidth: '200px'}}
-                data-ai-hint={authorImage.imageHint}
-                loading="lazy"
-              />
+              <div className="inline-block p-1 bg-card rounded-lg shadow-lg border-2 border-primary">
+                <Image
+                    src={authorImage.imageUrl}
+                    alt="Dr. Samuel Ortega"
+                    width={200}
+                    height={200}
+                    className="rounded-md"
+                    style={{maxWidth: '200px'}}
+                    data-ai-hint={authorImage.imageHint}
+                    loading="lazy"
+                />
+              </div>
             )}
           </div>
           <div className="md:col-span-2 text-center md:text-left">
@@ -411,7 +415,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                                     <Card>
                                         <CardContent className="flex flex-col items-center justify-center p-6 text-center">
                                             {image && (
-                                                <Avatar className="w-20 h-20 mb-4 border-4" style={{borderColor: '#C49A6C'}}>
+                                                <Avatar className="w-20 h-20 mb-4 border-4 border-primary">
                                                     <AvatarImage src={image.imageUrl} alt={testimonial.author} className="object-cover" loading="lazy" />
                                                     <AvatarFallback>{testimonial.author.substring(0,2)}</AvatarFallback>
                                                 </Avatar>
