@@ -30,7 +30,7 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
             </CardContent>
           </Card>
         </div>
-        <Button asChild size="lg" variant="outline" className="mt-12 bg-accent/20 border-accent text-accent-foreground hover:bg-accent/30 animate-pulse">
+        <Button asChild size="lg" variant="outline" className="mt-12 bg-accent/20 border-accent text-accent-foreground hover:bg-accent/30 animate-pulse text-lg px-10 py-6">
             <a href="#transition">
                 Descubre más <ArrowDown className="ml-2 h-5 w-5" />
             </a>
@@ -88,7 +88,7 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
             
             <section className="mt-20 text-center bg-card/50 rounded-xl p-10 shadow-lg">
                 <h2 className="font-headline text-3xl text-foreground/90">Descarga el eBook "Patriarcas y Profetas" y deja que las páginas hablen a tu espíritu.</h2>
-                <Button size="lg" className="mt-6 bg-accent text-accent-foreground hover:bg-accent/90 transform hover:scale-105 transition-transform duration-300">
+                <Button size="lg" className="mt-6 bg-accent text-accent-foreground hover:bg-accent/90 transform hover:scale-105 transition-transform duration-300 text-lg px-10 py-6">
                     <Download className="mr-2 h-5 w-5" />
                     Quiero mi revelación
                 </Button>
@@ -104,7 +104,7 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
             
             <section className="mt-20 py-16 text-center border-t border-border/50">
                 <h3 className="font-headline text-3xl text-foreground/80">¿Y si esta lectura fuera el inicio del propósito que buscabas?</h3>
-                <Button size="lg" variant="link" className="mt-6 text-accent hover:text-accent/80 text-xl">
+                <Button size="lg" variant="link" className="mt-6 text-accent hover:text-accent/80 text-xl px-10 py-6">
                     Comenzar ahora
                 </Button>
             </section>
