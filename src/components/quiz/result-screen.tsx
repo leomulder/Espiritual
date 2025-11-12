@@ -30,7 +30,7 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
             </CardContent>
           </Card>
         </div>
-        <Button asChild size="lg" variant="outline" className="mt-12 bg-primary/10 border-primary/50 text-foreground/70 hover:bg-primary/20 hover:text-foreground animate-pulse text-lg px-10 py-6">
+        <Button asChild size="lg" className="mt-12 bg-primary/10 border-primary/50 text-foreground/70 hover:bg-primary/20 hover:text-foreground animate-pulse text-lg px-10 py-6">
             <a href="#transition">
                 Descubre más <ArrowDown className="ml-2 h-5 w-5" />
             </a>
@@ -41,7 +41,7 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
         <section className="py-20 text-center max-w-3xl mx-auto px-4">
             <h3 className="font-headline text-3xl md:text-4xl text-foreground/90">Tu resultado revela que la fe dormida en ti está despertando.</h3>
             <p className="mt-4 text-lg text-foreground/70">Eso mismo ocurrió con los grandes Patriarcas y Profetas. En este libro descubrirás los secretos que ellos conocieron — y que el mundo moderno olvidó.</p>
-            <Button asChild size="lg" variant="outline" className="mt-8 bg-primary/10 border-primary/50 text-foreground/70 hover:bg-primary/20 hover:text-foreground text-lg px-10 py-6">
+            <Button asChild size="lg" className="mt-8 bg-primary/10 border-primary/50 text-foreground/70 hover:bg-primary/20 hover:text-foreground text-lg px-10 py-6">
                 <a href="#ebook-details">
                     Descubrir ahora <ArrowDown className="ml-2 h-5 w-5 animate-bounce" />
                 </a>
@@ -86,9 +86,9 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
                 <p className="font-headline text-2xl italic text-foreground/80">"Las historias son antiguas. Las lecciones, eternas."</p>
             </div>
             
-            <section className="mt-20 text-center bg-card/50 rounded-xl p-10 shadow-lg">
-                <h2 className="font-headline text-3xl text-foreground/90">Descarga el eBook "Patriarcas y Profetas" y deja que las páginas hablen a tu espíritu.</h2>
-                <Button size="lg" className="mt-6 bg-accent text-accent-foreground hover:bg-accent/90 transform hover:scale-105 transition-transform duration-300 text-lg px-10 py-6">
+            <section className="mt-20 text-center bg-card/50 rounded-xl p-6 md:p-10 shadow-lg">
+                <h2 className="font-headline text-2xl md:text-3xl text-foreground/90">Descarga el eBook "Patriarcas y Profetas" y deja que las páginas hablen a tu espíritu.</h2>
+                <Button size="lg" className="mt-6 w-full md:w-auto bg-accent text-accent-foreground hover:bg-accent/90 transform hover:scale-105 transition-transform duration-300 text-lg px-10 py-6">
                     <Download className="mr-2 h-5 w-5" />
                     Quiero mi revelación
                 </Button>
