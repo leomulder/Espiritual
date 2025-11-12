@@ -173,8 +173,13 @@ const BackToTopButton = () => {
 export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProps) {
   const authorImage = PlaceHolderImages.find(img => img.id === 'author-portrait');
   const appMockupImage = PlaceHolderImages.find(img => img.id === 'app-mockup');
+  const heroBookCoverImage = PlaceHolderImages.find(img => img.id === 'hero-book-cover');
   
-  const [countdownDate, setCountdownDate] = useState<number>(Date.now() + 59 * 60 * 1000);
+  const [countdownDate, setCountdownDate] = useState<number>(0);
+
+  useEffect(() => {
+    setCountdownDate(Date.now() + 3 * 60 * 60 * 1000);
+  }, []);
   
   const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState(false);
 
@@ -206,6 +211,19 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
           <h1 className="text-3xl md:text-5xl font-semibold text-foreground/90">
             ✨ Lo que los Patriarcas descubrieron puede transformar tu fe… incluso en estos tiempos.
           </h1>
+          {heroBookCoverImage && (
+            <div className="my-8">
+              <Image
+                src={heroBookCoverImage.imageUrl}
+                alt={heroBookCoverImage.description}
+                width={250}
+                height={380}
+                className="rounded-lg shadow-2xl mx-auto"
+                data-ai-hint={heroBookCoverImage.imageHint}
+                priority
+              />
+            </div>
+          )}
           <p className="mt-6 text-lg md:text-xl text-foreground/70">
             No es solo un libro: es una experiencia digital guiada. Descubre los secretos que Abraham, Isaac y Jacob aprendieron cuando el silencio de Dios parecía definitivo y comprende el propósito detrás de cada prueba.
           </p>
@@ -226,7 +244,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
             </div>
             <div className="mt-6 flex justify-center items-center gap-2 text-4xl md:text-5xl font-bold text-red-600 tabular-nums">
                 <Clock className="h-10 w-10" />
-                <Countdown date={countdownDate} />
+                {countdownDate > 0 && <Countdown date={countdownDate} />}
             </div>
              <p className="mt-6 text-lg text-foreground/80 font-semibold">
                 Esta no es una oferta más — es una oportunidad espiritual que muchos dejarán pasar sin darse cuenta.
@@ -332,7 +350,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                             <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10 hover:text-primary" onClick={() => setIsUpgradeModalOpen(true)}>Comenzar con el Básico</Button>
                         </CardContent>
                     </Card>
-                    <Card className="border-2 border-primary relative card-glow flex flex-col overflow-visible">
+                    <Card className="border-2 border-primary relative card-glow flex flex-col">
                          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
                             Recomendado
                         </div>
@@ -501,5 +519,3 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
     </div>
   );
 }
-
-    

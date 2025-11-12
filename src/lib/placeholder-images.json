@@ -7,10 +7,10 @@
       "imageHint": "prophets desert"
     },
     {
-      "id": "ebook-cover",
-      "description": "Ebook cover with desert background and golden light",
-      "imageUrl": "https://images.unsplash.com/photo-1522296328611-c1e5d33cb429?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZWJvb2slMjBkZXNlcnR8ZW58MHx8fHwxNzYyOTUwMjAzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "ebook desert"
+      "id": "hero-book-cover",
+      "description": "Book cover for Patriarcas y Profetas",
+      "imageUrl": "https://i.postimg.cc/RCyrLfY9/Captura-de-tela-2025-11-12-171544.png",
+      "imageHint": "book cover"
     },
     {
       "id": "author-portrait",
