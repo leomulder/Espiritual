@@ -188,8 +188,8 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
               <Image
                 src={appMockupImage.imageUrl}
                 alt="Aplicativo Patriarcas y Profetas"
-                width={800}
-                height={600}
+                width={600}
+                height={450}
                 className="rounded-lg shadow-2xl mx-auto"
                 data-ai-hint={appMockupImage.imageHint}
               />
@@ -404,4 +404,5 @@ export function ResultScreen({ patriarch, insight }: ResultScreenProps) {
   );
 }
 
+    
     
