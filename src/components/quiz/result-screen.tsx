@@ -388,7 +388,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                                 <li className="flex items-start"><Book className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">BÔNUS #2:</span> Ebook Los Códigos da Oración <span className="text-xs line-through text-muted-foreground">(U$7)</span></div></li>
                             </ul>
                              <p className="text-sm text-green-700 font-semibold"><Star className="inline-block h-4 w-4 mr-1" /> Ahorras U$14 en bônus. ¡Ideal para una experiencia profunda!</p>
-                            <Button className="w-full cta-button text-base md:text-lg h-auto py-3 px-6 whitespace-nowrap" onClick={scrollToPricing}>Quiero el acceso completo al App</Button>
+                            <Button className="w-full cta-button text-base md:text-lg h-auto py-3 px-6" onClick={scrollToPricing}>Quiero el acceso completo al App</Button>
                             <p className="text-xs text-muted-foreground pt-2">🕊️ Muchos que comenzaron con el básico luego desearon haber elegido el completo desde el principio.</p>
                         </CardContent>
                     </Card>
