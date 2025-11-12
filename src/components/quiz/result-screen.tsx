@@ -60,7 +60,7 @@ const testimonials = [
     },
     {
         quote: "Usarlo fue como volver a escuchar la voz de Dios después de años de silencio.",
-        author: "Andrés V., Chile",
+        author: "José Miguel., Chile",
         id: "testimonial-andres-2"
     }
 ];
