@@ -178,7 +178,8 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
   const [countdownDate, setCountdownDate] = useState<number>(0);
 
   useEffect(() => {
-    setCountdownDate(Date.now() + 3 * 60 * 60 * 1000);
+    // Set the countdown to 59 minutes from when the component mounts.
+    setCountdownDate(Date.now() + 59 * 60 * 1000);
   }, []);
   
   const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState(false);
@@ -201,7 +202,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
 
 
   return (
-    <div className="w-full bg-white text-foreground animate-in fade-in duration-300">
+    <div className="w-full bg-white text-foreground animate-in fade-in duration-500">
         {currentPurchase && <PurchaseNotification purchase={currentPurchase} onClose={() => setCurrentPurchase(null)} />}
         <BackToTopButton />
 
@@ -216,8 +217,8 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
               <Image
                 src={heroBookCoverImage.imageUrl}
                 alt={heroBookCoverImage.description}
-                width={250}
-                height={380}
+                width={300}
+                height={456}
                 className="rounded-lg shadow-2xl mx-auto"
                 data-ai-hint={heroBookCoverImage.imageHint}
                 priority
@@ -243,7 +244,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                 <h2 className="text-2xl md:text-3xl font-semibold text-foreground/80">Acceso especial con <span className="text-red-600">50% OFF</span> se cierra en:</h2>
             </div>
             <div className="mt-6 flex justify-center items-center gap-2 text-4xl md:text-5xl font-bold text-red-600 tabular-nums">
-                <Clock className="h-10 w-10" />
+                <Clock className="h-8 w-8" />
                 {countdownDate > 0 && <Countdown date={countdownDate} />}
             </div>
              <p className="mt-6 text-lg text-foreground/80 font-semibold">
@@ -359,7 +360,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                         </CardHeader>
                         <CardContent className="space-y-6 flex flex-col flex-grow">
                              <div className="bg-primary/10 border-l-4 border-primary text-primary-foreground p-3 rounded-r-lg">
-                                <p className="font-semibold text-sm text-center">¡Más de 1895 personas ya eligieron este plano!</p>
+                                <p className="font-semibold text-sm text-center text-foreground/90">¡Más de 1895 personas ya eligieron este plano!</p>
                              </div>
                             <p className="text-4xl font-bold">U$11,90 <span className="text-xl line-through text-muted-foreground">U$25,90</span></p>
                              <ul className="space-y-2 text-left text-foreground/80 flex-grow">
@@ -371,7 +372,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                                 <li className="flex items-start"><Book className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">BÔNUS #2:</span> Ebook Los Códigos da Oración <span className="text-xs line-through text-muted-foreground">(U$7)</span></div></li>
                             </ul>
                              <p className="text-sm text-green-700 font-semibold"><Star className="inline-block h-4 w-4 mr-1" /> Ahorras U$14 en bônus. ¡Ideal para una experiencia profunda!</p>
-                            <Button className="w-full cta-button text-base md:text-lg h-auto py-3 px-6 whitespace-nowrap">Quiero el acceso completo al App</Button>
+                            <Button className="w-full cta-button text-base md:text-lg h-auto py-3 px-6 whitespace-nowrap" onClick={scrollToPricing}>Quiero el acceso completo al App</Button>
                             <p className="text-xs text-muted-foreground pt-2">🕊️ Muchos que comenzaron con el básico luego desearon haber elegido el completo desde el principio.</p>
                         </CardContent>
                     </Card>
@@ -510,7 +511,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                     </ul>
                 </div>
                 <DialogFooter className="sm:flex-col sm:space-x-0 gap-2">
-                    <Button className="w-full cta-button text-lg h-auto py-3">Sí, quiero el 20% de descuento</Button>
+                    <Button className="w-full cta-button text-lg h-auto py-3" onClick={scrollToPricing}>Sí, quiero el 20% de descuento</Button>
                     <Button variant="ghost" onClick={() => setIsUpgradeModalOpen(false)} className="w-full">No gracias, continuar con el Básico</Button>
                 </DialogFooter>
             </DialogContent>
