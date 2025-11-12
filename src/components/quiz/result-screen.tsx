@@ -200,6 +200,18 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
     return () => clearInterval(interval);
   }, [purchaseIndex]);
 
+  const CountdownRenderer = ({ hours, minutes, seconds, completed }: { hours: number; minutes: number; seconds: number; completed: boolean; }) => {
+    if (completed) {
+      return <span>¡Oferta terminada!</span>;
+    } else {
+      return (
+        <span>
+          {String(hours).padStart(2, '0')}:{String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
+        </span>
+      );
+    }
+  };
+
 
   return (
     <div className="w-full bg-white text-foreground animate-in fade-in duration-500">
@@ -245,7 +257,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
             </div>
             <div className="mt-6 flex justify-center items-center gap-2 text-4xl md:text-5xl font-bold text-red-600 tabular-nums">
                 <Clock className="h-8 w-8" />
-                {countdownDate > 0 && <Countdown date={countdownDate} />}
+                {countdownDate > 0 && <Countdown date={countdownDate} renderer={CountdownRenderer} />}
             </div>
              <p className="mt-6 text-lg text-foreground/80 font-semibold">
                 Esta no es una oferta más — es una oportunidad espiritual que muchos dejarán pasar sin darse cuenta.
