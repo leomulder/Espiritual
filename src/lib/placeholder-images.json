@@ -15,7 +15,7 @@
     {
       "id": "app-mockup",
       "description": "Mockup of a spiritual study app on a smartphone.",
-      "imageUrl": "https://images.unsplash.com/photo-1627542557169-5ed71c66ed85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhcHAlMjBtb2NrdXB8ZW58MHx8fHwxNzYyOTQ1ODMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1627542557169-5ed71c66ed85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhcHAlMjBtb2NrdXB8ZW58MHx8fHwxNzYyOTQ1ODMxfDA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "app mockup"
     },
     {
@@ -39,7 +39,7 @@
     {
       "id": "testimonial-andres-2",
       "description": "Portrait of a man from Chile",
-      "imageUrl": "https://i.imgur.com/4dJp15V.jpeg",
+      "imageUrl": "https://i.postimg.cc/pL26q7GK/Captura-de-tela-2025-11-12-132628.png",
       "imageHint": "man portrait"
     }
   ]
