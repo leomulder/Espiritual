@@ -1,0 +1,52 @@
+{
+  "placeholderImages": [
+    {
+      "id": "quiz-start-image",
+      "description": "Arte conceitual para 'Patriarcas y Profetas'",
+      "imageUrl": "https://i.postimg.cc/SKy6CbKx/Gemini-Generated-Image-92a76y92a76y92a7.png",
+      "imageHint": "prophets desert"
+    },
+    {
+      "id": "hero-book-cover",
+      "description": "Book cover for Patriarcas y Profetas",
+      "imageUrl": "https://i.postimg.cc/kgH3fpwp/Happy-Mother-s-Day-Presentation-169-1.png",
+      "imageHint": "book cover"
+    },
+    {
+      "id": "author-portrait",
+      "description": "Portrait of a thoughtful middle-aged man in a suit, a biblical scholar.",
+      "imageUrl": "https://i.postimg.cc/9fMP6fb3/4.png",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "app-mockup",
+      "description": "Mockup of a spiritual study app on a smartphone.",
+      "imageUrl": "https://i.postimg.cc/Wz0XN63z/Post-instagram-4-beneficios-da-calistenia-treino-verde-e-preto.png",
+      "imageHint": "app mockup"
+    },
+    {
+      "id": "testimonial-carolina",
+      "description": "Portrait of a woman from Mexico",
+      "imageUrl": "https://i.postimg.cc/TY1RWMtq/1.png",
+      "imageHint": "woman portrait"
+    },
+    {
+      "id": "testimonial-maria",
+      "description": "Portrait of a woman from Colombia",
+      "imageUrl": "https://i.postimg.cc/y8rnY9ks/2.png",
+      "imageHint": "woman portrait"
+    },
+    {
+      "id": "testimonial-andres",
+      "description": "Portrait of a man from Peru",
+      "imageUrl": "https://i.postimg.cc/fbmXn0XD/3.png",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "testimonial-andres-2",
+      "description": "Portrait of a man from Chile",
+      "imageUrl": "https://i.postimg.cc/pL26q7GK/Captura-de-tela-2025-11-12-132628.png",
+      "imageHint": "man portrait"
+    }
+  ]
+}
