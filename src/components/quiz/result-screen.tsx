@@ -285,7 +285,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
             <div className="md:col-span-2 mt-8 md:mt-0">
               <h3 className="text-2xl font-semibold text-foreground/90">Una guía de alguien que ya recorrió este camino</h3>
               <p className="mt-4 text-lg text-foreground/70">
-                Esta experiencia fue creada por [Nombre del Autor], un teólogo y autor con más de 15 años de experiencia ayudando a personas a redescubrir una fe genuina y profunda. Su enfoque no es religioso, sino espiritual y transformador, basado en los principios eternos que guiaron a los patriarcas.
+                Esta experiencia fue creada por Juan Esteban, un teólogo y autor con más de 15 años de experiencia ayudando a personas a redescubrir una fe genuina y profunda. Su enfoque no es religioso, sino espiritual y transformador, basado en los principios eternos que guiaron a los patriarcas.
               </p>
             </div>
           </div>
@@ -332,7 +332,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
              No dejes que eso te pase.
           </p>
           <p className="mt-8 text-2xl font-semibold italic text-primary">
-            🕯️ “A veces, dejar pasar el momento… también es una elección.”
+            “A veces, dejar pasar el momento… también es una elección.”
           </p>
           <Button size="lg" className="mt-10 cta-button w-full md:w-auto text-lg h-auto py-4" onClick={scrollToPricing}>
             👉 Inicia tu Estudio Guiado Ahora
@@ -514,5 +514,3 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
     </div>
   );
 }
-
-    
