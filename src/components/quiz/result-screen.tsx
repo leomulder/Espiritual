@@ -12,14 +12,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import {
-    Dialog,
+  Dialog,
     DialogContent,
     DialogHeader,
     DialogTitle,
@@ -31,23 +24,19 @@ import {
     CheckCircle,
     Clock,
     ArrowUp,
-    Smartphone,
     Headphones,
     FileText,
-    Star,
-    CalendarCheck,
-    BookUser,
+    Gift,
+    Book,
+    Users,
     MessageSquareQuote,
     Sparkles,
     Check,
-    ShoppingCart,
-    Gift,
-    Book,
-    Users
+    BookUser,
+    ShoppingCart
 } from 'lucide-react';
 import Countdown from 'react-countdown';
-import { useEffect, useState, useRef } from 'react';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 
 interface ResultScreenProps {
@@ -195,7 +184,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
         {currentPurchase && <PurchaseNotification purchase={currentPurchase} onClose={() => setCurrentPurchase(null)} />}
         <BackToTopButton />
 
-      {/* SECCIÓN Hero — Encabezado Heroico */}
+      {/* Encabezado Heroico */}
       <section className="text-center py-16 md:py-24 px-6 md:px-16 bg-gradient-to-b from-background to-white">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl md:text-5xl font-semibold text-foreground/90">
@@ -226,7 +215,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
         </div>
       </section>
 
-      {/* SECCIÓN 1 – La Herida (golpe emocional inmediato) */}
+      {/* Sección 1 – La Herida (golpe emocional inmediato) */}
       <section className="py-16 px-6 bg-amber-50">
         <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-semibold text-foreground/80">Son las 11:17 de la noche.</h2>
@@ -244,7 +233,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
         </div>
       </section>
       
-      {/* SECCIÓN 2 – La Promesa Oculta */}
+      {/* Sección 2 – La Promesa Oculta */}
       <section className="py-16 px-6">
         <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-semibold text-foreground/90 mb-4">Los Patriarcas no eran héroes perfectos.</h2>
@@ -293,7 +282,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
       </section>
 
 
-      {/* SECCIÓN 3 – El Puente Espiritual Moderno */}
+      {/* Sección 3 – El Puente Espiritual Moderno */}
        <section className="py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-semibold text-foreground/90 mb-4">No es solo un libro.<br/>Es una experiencia espiritual guiada, hecha para tu tiempo, tu ritmo, tu vida.</h2>
@@ -322,7 +311,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
         </div>
       </section>
 
-      {/* SECCIÓN 4 – El Llamado */}
+      {/* Sección 4 – El Llamado */}
       <section className="py-16 px-6 text-center bg-background">
         <div className="max-w-3xl mx-auto">
           <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed">
@@ -340,7 +329,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
         </div>
       </section>
 
-      {/* SECCIÓN 5 – Planes */}
+      {/* Sección 5 – Planes */}
         <section id="pricing-section" className="py-16 px-6 bg-white">
             <div className="max-w-5xl mx-auto text-center">
                 <h2 className="text-3xl md:text-4xl font-semibold text-foreground/90 mb-12">Elige cómo comenzar tu viaje espiritual</h2>
@@ -383,7 +372,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                                 <li className="flex items-start ml-4"><Book className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div>E-book Los Códigos de la Oración <span className="text-xs line-through text-muted-foreground">($7)</span></div></li>
                             </ul>
                              <a href="https://pay.hotmart.com/K99537811Y?off=rtgmziqk&checkoutMode=10&bid=1762987298554" target="_blank" rel="noopener noreferrer" className="w-full">
-                                <Button className="w-full cta-button text-base md:text-lg h-auto py-3 px-6 whitespace-normal">Quiero el acceso completo al App</Button>
+                                <Button className="w-full cta-button text-base md:text-lg h-auto py-3 px-6">Quiero el acceso completo al App</Button>
                              </a>
                         </CardContent>
                     </Card>
@@ -391,7 +380,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
             </div>
         </section>
 
-      {/* SECCIÓN 6 – Urgencia */}
+      {/* Sección 6 – Urgencia */}
       <section className="py-16 px-6 text-center bg-amber-50">
         <div className="max-w-3xl mx-auto">
           <div className="flex justify-center items-center gap-3">
@@ -437,7 +426,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
         </div>
       </section>
 
-      {/* SECCIÓN 10 — CTA Final */}
+      {/* CTA Final */}
       <section className="py-16 px-6 text-center bg-white">
         <div className="max-w-3xl mx-auto">
             <p className="text-2xl font-semibold italic text-primary">
