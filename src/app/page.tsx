@@ -76,6 +76,8 @@ const handleStart = () => {
     
     const newAnswers = [...answers, { patriarch, answerText }];
     setAnswers(newAnswers);
+    registrarEvento(sessionId, `Pergunta ${currentQuestionIndex + 1}`, answerText);
+
 
     if (currentQuestionIndex < quizQuestions.length - 1) {
         setCurrentQuestionIndex(prev => prev + 1);
