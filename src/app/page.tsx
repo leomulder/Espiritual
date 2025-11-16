@@ -28,12 +28,14 @@ export default function Home() {
   const [sessionId] = useState(() => uuidv4());
 
 
-  const handleStart = () => {
-    setAnswers([]);
-    setCurrentQuestionIndex(0);
-    setResult(null);
-    setQuizState('in-progress');
-  };
+const handleStart = () => {
+  registrarEvento(sessionId, "Inicio do Quiz"); // <-- NOVO
+  setAnswers([]);
+  setCurrentQuestionIndex(0);
+  setResult(null);
+  setQuizState('in-progress');
+};
+
 
   const handleBack = () => {
     if (quizState === 'in-progress' && currentQuestionIndex > 0) {
