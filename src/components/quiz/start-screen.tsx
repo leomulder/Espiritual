@@ -13,7 +13,7 @@ export function StartScreen({ onStart }: StartScreenProps) {
   return (
     <div className="flex flex-col items-center text-center max-w-2xl mx-auto p-4 animate-in fade-in duration-1000">
       <h1 className="font-headline text-4xl md:text-6xl text-foreground/90">
-        ¿Qué Patriarca o Profeta Revela Tu Verdadero Espíritu?
+        ¿Qué Patriarca o Profeta refleja el espíritu que vive dentro de ti?
       </h1>
       
       {startImage && (
@@ -31,13 +31,13 @@ export function StartScreen({ onStart }: StartScreenProps) {
       )}
 
       <p className="mt-4 text-lg md:text-xl text-foreground/70">
-        Descubre el mensaje oculto que puede cambiar tu vida hoy.
+        Hay un mensaje oculto en tu fe… y este test podría revelarlo.
       </p>
       <p className="mt-4 text-lg md:text-xl text-foreground/70">
-        Cada respuesta revelará qué parte de tu fe ha estado dormida.
+        Cada respuesta te mostrará la parte de tu interior que Dios ha querido despertar desde hace tiempo.
       </p>
       <p className="mt-4 text-lg md:text-xl text-foreground/70 italic">
-        Responde con sinceridad — el resultado puede despertar algo que pensabas olvidado.
+        Responde con sinceridad — muchos descubren aquí algo que creían haber olvidado.
       </p>
       <Button 
         onClick={onStart} 
