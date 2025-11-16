@@ -49,7 +49,7 @@ interface ResultScreenProps {
 const faqItems = [
     {
         question: "¿Qué recibiré al comprar?",
-        answer: "Recibirás acceso inmediato y personal al aplicativo Patriarcas y Profetas, para leer, escuchar y hacer anotaciones desde cualquier dispositivo."
+        answer: "Recibirás acceso inmediato y personal a la aplicación Patriarcas y Profetas, para leer, escuchar y hacer anotaciones desde cualquier dispositivo."
     },
     {
         question: "¿Necesito descargar algo?",
@@ -65,7 +65,7 @@ const faqItems = [
     },
     {
         question: "¿Por qué hay una fecha límite?",
-        answer: "Ofrecemos acceso con descuento por tiempo limitado para esta primera versión del aplicativo. Las licencias son limitadas para garantizar un soporte de calidad a los primeros usuarios."
+        answer: "Ofrecemos acceso con descuento por tiempo limitado para esta primera versión de la aplicación. Las licencias son limitadas para garantizar un soporte de calidad a los primeros usuarios."
     }
 ]
 
@@ -97,10 +97,10 @@ const testimonials = [
     quote: "Dejé de ver mis luchas como castigos y empecé a verlas como una preparación. Transformador.",
   },
     {
-    id: "testimonial-andres-2",
-    name: "Andrés F.",
+    id: "testimonial-daniel",
+    name: "Daniel R.",
     location: "Chile",
-    quote: "Dejé de ver mis luchas como castigos y empecé a verlas como una preparación. Transformador.",
+    quote: "Esta experiencia me cambió la perspectiva. Sentí que Dios volvió a hablar a mi corazón.",
   }
 ];
 
@@ -226,7 +226,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
             <div className="my-8 inline-block p-2 bg-card rounded-2xl shadow-2xl border-4 border-primary">
               <Image
                 src={heroBookCoverImage.imageUrl}
-                alt={heroBookCoverImage.description}
+                alt="Portada del libro Patriarcas y Profetas"
                 width={1200}
                 height={1824}
                 className="rounded-lg mx-auto w-full max-w-[600px] h-auto"
@@ -236,7 +236,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
             </div>
           )}
           <Button size="lg" className="mt-10 cta-button w-full md:w-auto text-lg h-auto py-4" onClick={scrollToPricing}>
-            Acceder al App ahora
+            Acceder a la App ahora
           </Button>
           <p className="mt-6 text-sm text-foreground/60">
             Más de 27,000 lectores en toda América Latina ya han sentido este despertar espiritual.
@@ -267,10 +267,10 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
         <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-semibold text-foreground/90 mb-4">Los Patriarcas no eran héroes perfectos.</h2>
             <p className="text-lg text-foreground/70 max-w-3xl mx-auto mb-8">
-               Eran hombres y mujeres como tú: cansados, heridos, muchas veces dudando. Pero había algo distinto: no se rendían cuando Dios callaba.
+               Eran personas como tú: cansadas, heridas, muchas veces dudando. Pero había algo distinto: no se rendían cuando Dios callaba.
             </p>
             <p className="text-lg text-foreground/80 font-semibold max-w-3xl mx-auto mb-12">
-               Este aplicativo espiritual te revela lo que ellos descubrieron en medio del desierto:
+               Esta aplicación espiritual te revela lo que ellos descubrieron en medio del desierto:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto text-left">
                 <div className="flex items-start gap-3"><CheckCircle className="h-6 w-6 text-primary/80 mt-1 shrink-0" /><p className="text-lg">Por qué Dios tarda cuando todo parece perdido</p></div>
@@ -290,7 +290,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                  <div className="inline-block p-2 bg-card rounded-2xl shadow-2xl border-4 border-primary">
                     <Image
                       src={authorImage.imageUrl}
-                      alt={authorImage.description}
+                      alt="Retrato de un hombre reflexivo de mediana edad con traje, un estudioso bíblico."
                       width={250}
                       height={250}
                       className="rounded-lg mx-auto"
@@ -303,7 +303,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
             <div className="md:col-span-2 mt-8 md:mt-0">
               <h3 className="text-2xl font-semibold text-foreground/90">Una guía de alguien que ya recorrió este camino</h3>
               <p className="mt-4 text-lg text-foreground/70">
-                Esta experiencia fue creada por Juan Esteban, un teólogo y autor con más de 15 años de experiencia ayudando a personas a redescubrir una fe genuina y profunda. Su enfoque no es religioso, sino espiritual y transformador, basado en los principios eternos que guiaron a los patriarcas.
+                Esta experiencia fue creada por Juan Esteban, un teólogo y autor con más de 15 años ayudando a personas a redescubrir una fe genuina y profunda. Su enfoque no es religioso, sino espiritual y transformador, basado en los principios eternos que guiaron a los patriarcas.
               </p>
             </div>
           </div>
@@ -332,7 +332,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                                             {image && (
                                                 <Image
                                                     src={image.imageUrl}
-                                                    alt={`foto de ${testimonial.name}`}
+                                                    alt={`Foto de ${testimonial.name}`}
                                                     width={80}
                                                     height={80}
                                                     className="rounded-full mb-4"
@@ -363,7 +363,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
               <div className="inline-block p-1 my-8 bg-card rounded-lg shadow-2xl border-2 border-primary">
                 <Image
                     src={appMockupImage.imageUrl}
-                    alt="Aplicativo Patriarcas y Profetas"
+                    alt="Aplicación Patriarcas y Profetas"
                     width={600}
                     height={450}
                     className="rounded-md mx-auto"
@@ -430,7 +430,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                             <CardTitle className="text-2xl">🔥 Plan Completo</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-6 flex flex-col flex-grow">
-                            <p className="text-4xl font-bold">$11.90 USD <span className="text-xl line-through text-muted-foreground">U$25,90</span></p>
+                            <p className="text-4xl font-bold">Ahora: $11.90 USD <span className="text-xl line-through text-muted-foreground">Antes: $25.90 USD</span></p>
                              <ul className="space-y-2 text-left text-foreground/80 flex-grow">
                                 <li className="flex items-start"><Check className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Incluye TODO lo del Plan Básico +:</span></div></li>
                                 <li className="flex items-start"><Sparkles className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Reflexiones guiadas cada día</span></div></li>
@@ -438,10 +438,10 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                                 <li className="flex items-start"><FileText className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Módulo de notas personales</span></div></li>
                                 <li className="flex items-start font-semibold"><Gift className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="text-foreground">BONOS:</span></div></li>
                                 <li className="flex items-start ml-4"><Book className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div>Comunidad VIP en WhatsApp <span className="text-xs line-through text-muted-foreground">($7)</span></div></li>
-                                <li className="flex items-start ml-4"><Book className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div>E-book Los Códigos de la Oración <span className="text-xs line-through text-muted-foreground">($7)</span></div></li>
+                                <li className="flex items-start ml-4"><Book className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div>E-book "Los Códigos de la Oración" <span className="text-xs line-through text-muted-foreground">($7)</span></div></li>
                             </ul>
                              <a href="https://pay.hotmart.com/K99537811Y?off=rtgmziqk&checkoutMode=10&bid=1762987298554" target="_blank" rel="noopener noreferrer" className="w-full">
-                                <Button className="w-full cta-button text-base md:text-lg h-auto py-3 px-6">Quiero el acceso completo al App</Button>
+                                <Button className="w-full cta-button text-base md:text-lg h-auto py-3 px-6">Quiero el acceso completo a la App</Button>
                              </a>
                         </CardContent>
                     </Card>
@@ -473,7 +473,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
           <ShieldCheck className="h-12 w-12 text-primary mx-auto" />
           <h3 className="mt-4 text-2xl font-semibold">Garantía total de 15 días</h3>
           <p className="mt-2 text-foreground/70">
-            Si no sientes crecimiento espiritual con el aplicativo, te devolvemos el 100% sin preguntas.
+            Si no sientes crecimiento espiritual con la aplicación, te devolvemos el 100% sin preguntas.
           </p>
         </div>
       </section>
@@ -553,7 +553,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                         <li className="flex items-start"><Check className="h-5 w-5 mr-2 text-green-500 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Todo lo del Plan Básico</span> y mucho más.</div></li>
                         <li className="flex items-start"><BookUser className="h-5 w-5 mr-2 text-green-500 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Módulo de Anotaciones:</span> Guarda tus revelaciones personales.</div></li>
                         <li className="flex items-start"><MessageSquareQuote className="h-5 w-5 mr-2 text-green-500 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Comentarios del Autor:</span> Accede a una profundidad teológica única.</div></li>
-                        <li className="flex items-start"><Sparkles className="h-5 w-5 mr-2 text-green-500 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Reflexiones Diarias:</span> Impulsa tu crecimiento espiritual cada día.</div></li>
+                        <li className="flex items-start"><Sparkles className="h-5 w-5 mr-2 text-green-500 shrink-0 mt-1" /> <div><span className="fontsemibold text-foreground">Reflexiones Diarias:</span> Impulsa tu crecimiento espiritual cada día.</div></li>
                         <li className="flex items-start"><Users className="h-5 w-5 mr-2 text-green-500 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Bônus: Comunidad VIP</span></div></li>
                         <li className="flex items-start"><Book className="h-5 w-5 mr-2 text-green-500 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Bônus: Ebook Códigos da Oração</span></div></li>
                     </ul>
