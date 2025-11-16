@@ -25,6 +25,8 @@ export default function Home() {
   const [result, setResult] = useState<{ patriarch: Patriarch; insight: string } | null>(null);
   const [isAnswering, setIsAnswering] = useState(false);
   const { toast } = useToast();
+  const [sessionId] = useState(() => uuidv4());
+
 
   const handleStart = () => {
     setAnswers([]);
