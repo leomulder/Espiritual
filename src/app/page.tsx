@@ -11,6 +11,9 @@ import { getSpiritualInsightAction } from '@/app/actions';
 import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
+import { registrarEvento } from "@/lib/metrics";
+import { v4 as uuidv4 } from "uuid";
+
 
 type QuizState = 'start' | 'in-progress' | 'loading' | 'result';
 type Answer = { patriarch: Patriarch; answerText: string };
