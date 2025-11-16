@@ -38,6 +38,7 @@ import {
 import Countdown from 'react-countdown';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 interface ResultScreenProps {
   patriarch: Patriarch;
@@ -75,6 +76,34 @@ const recentPurchases = [
     { name: 'Lucas F.', location: 'Santiago, CL', plan: 'Plan Básico', time: 'hace 8 minutos' },
     { name: 'Isabella C.', location: 'Medellín, CO', plan: 'Plan Completo', time: 'hace 10 minutos' },
 ];
+
+const testimonials = [
+  {
+    id: "testimonial-carolina",
+    name: "Carolina M.",
+    location: "México",
+    quote: "Nunca imaginé que entender las pruebas de Abraham me ayudaría a entender las mías.",
+  },
+  {
+    id: "testimonial-maria",
+    name: "María José R.",
+    location: "Colombia",
+    quote: "Esta app llegó justo cuando más lo necesitaba. Fue como escuchar la voz de Dios de nuevo, clara y personal.",
+  },
+  {
+    id: "testimonial-andres",
+    name: "Andrés F.",
+    location: "Perú",
+    quote: "Dejé de ver mis luchas como castigos y empecé a verlas como una preparación. Transformador.",
+  },
+    {
+    id: "testimonial-andres-2",
+    name: "Andrés F.",
+    location: "Chile",
+    quote: "Dejé de ver mis luchas como castigos y empecé a verlas como una preparación. Transformador.",
+  }
+];
+
 
 const PurchaseNotification = ({ purchase, onClose }: { purchase: typeof recentPurchases[0], onClose: () => void }) => {
     useEffect(() => {
@@ -187,12 +216,12 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
       {/* Encabezado Heroico */}
       <section className="text-center py-16 md:py-24 px-6 md:px-16 bg-gradient-to-b from-background to-white">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl md:text-5xl font-semibold text-foreground/90">
-            Cuando Dios parece en silencio… es porque está formando tu fe.
-          </h1>
-           <p className="mt-6 text-lg md:text-xl text-foreground/70">
-            Descubre lo que Abraham, Isaac y Jacob aprendieron cuando el cielo parecía cerrado.
-          </p>
+            <h1 className="text-3xl md:text-5xl font-semibold text-foreground/90">
+                Cuando Dios parece en silencio… es porque está formando tu fe.
+            </h1>
+            <p className="mt-6 text-lg md:text-xl text-foreground/70">
+                Descubre lo que Abraham, Isaac y Jacob aprendieron cuando el cielo parecía cerrado.
+            </p>
           {heroBookCoverImage && (
             <div className="my-8 inline-block p-2 bg-card rounded-2xl shadow-2xl border-4 border-primary">
               <Image
@@ -281,9 +310,53 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section className="py-16 px-6 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-semibold text-foreground/90 mb-12">Lo que dicen quienes ya lo vivieron</h2>
+            <Carousel
+                opts={{
+                    align: "start",
+                    loop: true,
+                }}
+                className="w-full"
+            >
+                <CarouselContent>
+                    {testimonials.map((testimonial) => {
+                        const image = PlaceHolderImages.find(img => img.id === testimonial.id);
+                        return (
+                            <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/3">
+                                <div className="p-1">
+                                    <Card>
+                                        <CardContent className="flex flex-col items-center justify-center p-6 text-center">
+                                            {image && (
+                                                <Image
+                                                    src={image.imageUrl}
+                                                    alt={`foto de ${testimonial.name}`}
+                                                    width={80}
+                                                    height={80}
+                                                    className="rounded-full mb-4"
+                                                    data-ai-hint={image.imageHint}
+                                                />
+                                            )}
+                                            <p className="italic text-foreground/80 mb-4">“{testimonial.quote}”</p>
+                                            <p className="font-semibold">{testimonial.name}</p>
+                                            <p className="text-sm text-muted-foreground">{testimonial.location}</p>
+                                        </CardContent>
+                                    </Card>
+                                </div>
+                            </CarouselItem>
+                        );
+                    })}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+            </Carousel>
+        </div>
+      </section>
 
       {/* Sección 3 – El Puente Espiritual Moderno */}
-       <section className="py-16 px-6 bg-white">
+       <section className="py-16 px-6 bg-background">
         <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-semibold text-foreground/90 mb-4">No es solo un libro.<br/>Es una experiencia espiritual guiada, hecha para tu tiempo, tu ritmo, tu vida.</h2>
              {appMockupImage && (
@@ -312,7 +385,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
       </section>
 
       {/* Sección 4 – El Llamado */}
-      <section className="py-16 px-6 text-center bg-background">
+      <section className="py-16 px-6 text-center bg-white">
         <div className="max-w-3xl mx-auto">
           <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed">
             Cada día que pasa sin entender el propósito de tus pruebas… tu fe se enfría un poco.
@@ -330,7 +403,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
       </section>
 
       {/* Sección 5 – Planes */}
-        <section id="pricing-section" className="py-16 px-6 bg-white">
+        <section id="pricing-section" className="py-16 px-6 bg-background">
             <div className="max-w-5xl mx-auto text-center">
                 <h2 className="text-3xl md:text-4xl font-semibold text-foreground/90 mb-12">Elige cómo comenzar tu viaje espiritual</h2>
                 <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -358,10 +431,6 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                         </CardHeader>
                         <CardContent className="space-y-6 flex flex-col flex-grow">
                             <p className="text-4xl font-bold">$11.90 USD <span className="text-xl line-through text-muted-foreground">U$25,90</span></p>
-                            <div className="bg-primary/10 border-l-4 border-primary text-primary-foreground p-3 rounded-r-lg space-y-2">
-                                <p className="text-center text-foreground/90 text-sm">💬 “Nunca imaginé que entender las pruebas de Abraham me ayudaría a entender las mías.” <span className="font-semibold">— Carolina M., México</span></p>
-                                <p className="text-center text-foreground/90 text-sm">💬 “Esta app llegó justo cuando más lo necesitaba.” <span className="font-semibold">— María José R., Colombia</span></p>
-                            </div>
                              <ul className="space-y-2 text-left text-foreground/80 flex-grow">
                                 <li className="flex items-start"><Check className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Incluye TODO lo del Plan Básico +:</span></div></li>
                                 <li className="flex items-start"><Sparkles className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Reflexiones guiadas cada día</span></div></li>
