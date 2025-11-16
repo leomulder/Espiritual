@@ -56,29 +56,6 @@ interface ResultScreenProps {
   onRestart: () => void;
 }
 
-const testimonials = [
-    {
-        quote: "Nunca imaginé que entender las pruebas de Abraham me ayudaría a entender las mías.",
-        author: "Carolina M., México",
-        id: "testimonial-carolina"
-    },
-    {
-        quote: "Esta app llegó justo cuando más lo necesitaba.",
-        author: "María José R., Colombia",
-        id: "testimonial-maria"
-    },
-     {
-        quote: "Cada página me hizo sentir más cerca de Dios.",
-        author: "Andrés V., Perú",
-        id: "testimonial-andres"
-    },
-    {
-        quote: "Usarlo fue como volver a escuchar la voz de Dios después de años de silencio.",
-        author: "José Miguel., Chile",
-        id: "testimonial-andres-2"
-    }
-];
-
 const faqItems = [
     {
         question: "¿Qué recibiré al comprar?",
@@ -252,9 +229,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
       {/* SECCIÓN 1 – La Herida (golpe emocional inmediato) */}
       <section className="py-16 px-6 bg-amber-50">
         <div className="max-w-3xl mx-auto text-center">
-            <div className="flex justify-center items-center gap-3">
-                <h2 className="text-2xl md:text-3xl font-semibold text-foreground/80">Son las 11:17 de la noche.</h2>
-            </div>
+            <h2 className="text-2xl md:text-3xl font-semibold text-foreground/80">Son las 11:17 de la noche.</h2>
             <p className="mt-6 text-lg text-foreground/80">
                 Cierras los ojos y te preguntas otra vez:
             </p>
@@ -287,9 +262,39 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
             </div>
         </div>
       </section>
+      
+      {/* SECCIÓN AUTORIDAD */}
+      <section className="py-16 px-6 bg-background">
+        <div className="max-w-4xl mx-auto">
+          <div className="md:grid md:grid-cols-3 md:items-center md:gap-12 text-center md:text-left">
+            {authorImage && (
+              <div className="md:col-span-1 flex justify-center">
+                 <div className="inline-block p-2 bg-card rounded-2xl shadow-2xl border-4 border-primary">
+                    <Image
+                      src={authorImage.imageUrl}
+                      alt={authorImage.description}
+                      width={250}
+                      height={250}
+                      className="rounded-lg mx-auto"
+                      data-ai-hint={authorImage.imageHint}
+                      loading="lazy"
+                    />
+                </div>
+              </div>
+            )}
+            <div className="md:col-span-2 mt-8 md:mt-0">
+              <h3 className="text-2xl font-semibold text-foreground/90">Una guía de alguien que ya recorrió este camino</h3>
+              <p className="mt-4 text-lg text-foreground/70">
+                Esta experiencia fue creada por [Nombre del Autor], un teólogo y autor con más de 15 años de experiencia ayudando a personas a redescubrir una fe genuina y profunda. Su enfoque no es religioso, sino espiritual y transformador, basado en los principios eternos que guiaron a los patriarcas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* SECCIÓN 3 – El Puente Espiritual Moderno */}
-       <section className="py-16 px-6 bg-background">
+       <section className="py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-semibold text-foreground/90 mb-4">No es solo un libro.<br/>Es una experiencia espiritual guiada, hecha para tu tiempo, tu ritmo, tu vida.</h2>
              {appMockupImage && (
@@ -318,7 +323,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
       </section>
 
       {/* SECCIÓN 4 – El Llamado */}
-      <section className="py-16 px-6 text-center">
+      <section className="py-16 px-6 text-center bg-background">
         <div className="max-w-3xl mx-auto">
           <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed">
             Cada día que pasa sin entender el propósito de tus pruebas… tu fe se enfría un poco.
@@ -336,7 +341,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
       </section>
 
       {/* SECCIÓN 5 – Planes */}
-        <section id="pricing-section" className="py-16 px-6 bg-background">
+        <section id="pricing-section" className="py-16 px-6 bg-white">
             <div className="max-w-5xl mx-auto text-center">
                 <h2 className="text-3xl md:text-4xl font-semibold text-foreground/90 mb-12">Elige cómo comenzar tu viaje espiritual</h2>
                 <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -352,7 +357,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                                 <li className="flex items-center"><CheckCircle className="h-5 w-5 mr-2 text-green-600" /> Plan de estudio guiado de 21 días</li>
                             </ul>
                              <p className="text-sm text-muted-foreground">Perfecto para comenzar tu camino espiritual.</p>
-                             <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10 hover:text-primary" onClick={() => setIsUpgradeModalOpen(true)}>Comenzar con el Básico</Button>
+                             <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10 hover:text-primary whitespace-normal h-auto" onClick={() => setIsUpgradeModalOpen(true)}>Comenzar con el Básico</Button>
                         </CardContent>
                     </Card>
                     <Card className="border-2 border-primary relative card-glow flex flex-col">
@@ -363,11 +368,11 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                             <CardTitle className="text-2xl">🔥 Plan Completo</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-6 flex flex-col flex-grow">
-                             <div className="bg-primary/10 border-l-4 border-primary text-primary-foreground p-3 rounded-r-lg">
-                                 <p className="text-center text-foreground/90">💬 “Nunca imaginé que entender las pruebas de Abraham me ayudaría a entender las mías.” <span className="font-semibold">— Carolina M., México</span></p>
-                                 <p className="mt-2 text-center text-foreground/90">💬 “Esta app llegó justo cuando más lo necesitaba.” <span className="font-semibold">— María José R., Colombia</span></p>
-                             </div>
                             <p className="text-4xl font-bold">$11.90 USD <span className="text-xl line-through text-muted-foreground">U$25,90</span></p>
+                            <div className="bg-primary/10 border-l-4 border-primary text-primary-foreground p-3 rounded-r-lg space-y-2">
+                                <p className="text-center text-foreground/90 text-sm">💬 “Nunca imaginé que entender las pruebas de Abraham me ayudaría a entender las mías.” <span className="font-semibold">— Carolina M., México</span></p>
+                                <p className="text-center text-foreground/90 text-sm">💬 “Esta app llegó justo cuando más lo necesitaba.” <span className="font-semibold">— María José R., Colombia</span></p>
+                            </div>
                              <ul className="space-y-2 text-left text-foreground/80 flex-grow">
                                 <li className="flex items-start"><Check className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Incluye TODO lo del Plan Básico +:</span></div></li>
                                 <li className="flex items-start"><Sparkles className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Reflexiones guiadas cada día</span></div></li>
@@ -378,7 +383,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                                 <li className="flex items-start ml-4"><Book className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div>E-book Los Códigos de la Oración <span className="text-xs line-through text-muted-foreground">($7)</span></div></li>
                             </ul>
                              <a href="https://pay.hotmart.com/K99537811Y?off=rtgmziqk&checkoutMode=10&bid=1762987298554" target="_blank" rel="noopener noreferrer" className="w-full">
-                                <Button className="w-full cta-button text-base md:text-lg h-auto py-3 px-6">Quiero el acceso completo al App</Button>
+                                <Button className="w-full cta-button text-base md:text-lg h-auto py-3 px-6 whitespace-normal">Quiero el acceso completo al App</Button>
                              </a>
                         </CardContent>
                     </Card>
@@ -405,7 +410,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
       </section>
 
       {/* SECCIÓN 7 — Garantía */}
-      <section className="py-16 px-6 text-center">
+      <section className="py-16 px-6 text-center bg-white">
         <div className="max-w-2xl mx-auto">
           <ShieldCheck className="h-12 w-12 text-primary mx-auto" />
           <h3 className="mt-4 text-2xl font-semibold">Garantía total de 15 días</h3>
@@ -415,49 +420,8 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
         </div>
       </section>
 
-      {/* SECCIÓN 8 — Testimonios */}
-        <section className="py-16 px-6 bg-background">
-            <div className="max-w-3xl mx-auto text-center">
-                <h2 className="text-3xl md:text-4xl font-semibold text-foreground/90 mb-12">Lo que dicen nuestros usuarios</h2>
-                <Carousel
-                    opts={{
-                        align: "start",
-                        loop: true,
-                    }}
-                    className="w-full"
-                >
-                    <CarouselContent>
-                        {testimonials.map((testimonial, index) => {
-                            const image = PlaceHolderImages.find(img => img.id === testimonial.id);
-                            return (
-                            <CarouselItem key={index}>
-                                <div className="p-2">
-                                    <Card>
-                                        <CardContent className="flex flex-col items-center justify-center p-6 text-center">
-                                            {image && (
-                                                <div className="inline-block p-1 bg-card rounded-full shadow-lg border-2 border-primary mb-4">
-                                                    <Avatar className="w-20 h-20">
-                                                        <AvatarImage src={image.imageUrl} alt={testimonial.author} className="object-cover" loading="lazy" />
-                                                        <AvatarFallback>{testimonial.author.substring(0,2)}</AvatarFallback>
-                                                    </Avatar>
-                                                </div>
-                                            )}
-                                            <p className="text-lg italic">"{testimonial.quote}"</p>
-                                            <p className="mt-4 font-semibold text-primary">— {testimonial.author}</p>
-                                        </CardContent>
-                                    </Card>
-                                </div>
-                            </CarouselItem>
-                        )})}
-                    </CarouselContent>
-                    <CarouselPrevious className="hidden sm:flex" />
-                    <CarouselNext className="hidden sm:flex" />
-                </Carousel>
-            </div>
-        </section>
-
       {/* SECCIÓN 9 — FAQ */}
-      <section className="py-16 px-6">
+      <section className="py-16 px-6 bg-background">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12">Preguntas frecuentes</h2>
           <Accordion type="single" collapsible className="w-full">
@@ -474,7 +438,7 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
       </section>
 
       {/* SECCIÓN 10 — CTA Final */}
-      <section className="py-16 px-6 text-center bg-background">
+      <section className="py-16 px-6 text-center bg-white">
         <div className="max-w-3xl mx-auto">
             <p className="text-2xl font-semibold italic text-primary">
                “Los patriarcas también dudaron y también temieron… pero fueron transformados por su fe.”
@@ -550,3 +514,5 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
     </div>
   );
 }
+
+    
