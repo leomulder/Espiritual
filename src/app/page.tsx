@@ -73,39 +73,40 @@ const handleStart = () => {
 
   const handleAnswer = useCallback(async (patriarch: Patriarch, answerText: string) => {
     if (isAnswering) return;
-    
+
+    setIsAnswering(true);
     const newAnswers = [...answers, { patriarch, answerText }];
     setAnswers(newAnswers);
     registrarEvento(sessionId, `Pergunta ${currentQuestionIndex + 1}`, answerText);
 
-
     if (currentQuestionIndex < quizQuestions.length - 1) {
-        setCurrentQuestionIndex(prev => prev + 1);
+        setTimeout(() => {
+            setCurrentQuestionIndex(prev => prev + 1);
+            setIsAnswering(false);
+        }, 300);
     } else {
-        setIsAnswering(true);
         setQuizState('loading');
         const finalPatriarch = determineResult(newAnswers);
         const answerTexts = newAnswers.map(a => a.answerText);
         
-        getSpiritualInsightAction(finalPatriarch, answerTexts)
-            .then(insight => {
-                setResult({ patriarch: finalPatriarch, insight });
-              registrarEvento(sessionId, "Quiz Finalizado", finalPatriarch);
-                setQuizState('result');
-            })
-            .catch(err => {
-                console.error(err);
-                toast({
-                    variant: 'destructive',
-                    title: 'Error',
-                    description: 'No se pudo generar la revelación. Por favor, intenta de nuevo.',
-                });
-                setQuizState('start');
-            }).finally(() => {
-                setIsAnswering(false);
+        try {
+            const insight = await getSpiritualInsightAction(finalPatriarch, answerTexts);
+            setResult({ patriarch: finalPatriarch, insight });
+            registrarEvento(sessionId, "Quiz Finalizado", finalPatriarch);
+            setQuizState('result');
+        } catch (err) {
+            console.error(err);
+            toast({
+                variant: 'destructive',
+                title: 'Error',
+                description: 'No se pudo generar la revelación. Por favor, intenta de nuevo.',
             });
+            setQuizState('start');
+        } finally {
+            setIsAnswering(false);
+        }
     }
-  }, [answers, currentQuestionIndex, determineResult, toast, isAnswering]);
+  }, [answers, currentQuestionIndex, determineResult, toast, isAnswering, sessionId]);
 
 
   const currentQuestion = useMemo(() => quizQuestions[currentQuestionIndex], [currentQuestionIndex]);
