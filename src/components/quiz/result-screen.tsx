@@ -58,12 +58,12 @@ interface ResultScreenProps {
 
 const testimonials = [
     {
-        quote: "Nunca imaginé que entender las pruebas de Abraham me haría entender las mías.",
+        quote: "Nunca imaginé que entender las pruebas de Abraham me ayudaría a entender las mías.",
         author: "Carolina M., México",
         id: "testimonial-carolina"
     },
     {
-        quote: "Este aplicativo llegó justo cuando más lo necesitaba.",
+        quote: "Esta app llegó justo cuando más lo necesitaba.",
         author: "María José R., Colombia",
         id: "testimonial-maria"
     },
@@ -218,12 +218,15 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
         {currentPurchase && <PurchaseNotification purchase={currentPurchase} onClose={() => setCurrentPurchase(null)} />}
         <BackToTopButton />
 
-      {/* SECCIÓN 1 — Hero */}
+      {/* SECCIÓN Hero — Encabezado Heroico */}
       <section className="text-center py-16 md:py-24 px-6 md:px-16 bg-gradient-to-b from-background to-white">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl md:text-5xl font-semibold text-foreground/90">
-            ✨ Lo que los Patriarcas descubrieron puede transformar tu fe… incluso en estos tiempos.
+            Cuando Dios parece en silencio… es porque está formando tu fe.
           </h1>
+           <p className="mt-6 text-lg md:text-xl text-foreground/70">
+            Descubre lo que Abraham, Isaac y Jacob aprendieron cuando el cielo parecía cerrado.
+          </p>
           {heroBookCoverImage && (
             <div className="my-8 inline-block p-2 bg-card rounded-2xl shadow-2xl border-4 border-primary">
               <Image
@@ -237,9 +240,6 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
               />
             </div>
           )}
-          <p className="mt-6 text-lg md:text-xl text-foreground/70">
-            No es solo un libro: es una experiencia digital guiada. Descubre los secretos que Abraham, Isaac y Jacob aprendieron cuando el silencio de Dios parecía definitivo y comprende el propósito detrás de cada prueba.
-          </p>
           <Button size="lg" className="mt-10 cta-button w-full md:w-auto text-lg h-auto py-4" onClick={scrollToPricing}>
             Acceder al App ahora
           </Button>
@@ -249,37 +249,51 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
         </div>
       </section>
 
-      {/* SECCIÓN 2 — Escasez */}
+      {/* SECCIÓN 1 – La Herida (golpe emocional inmediato) */}
       <section className="py-16 px-6 bg-amber-50">
         <div className="max-w-3xl mx-auto text-center">
             <div className="flex justify-center items-center gap-3">
-                <h2 className="text-2xl md:text-3xl font-semibold text-foreground/80">Acceso especial con <span className="text-red-600">50% OFF</span> se cierra en:</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-foreground/80">Son las 11:17 de la noche.</h2>
             </div>
-            <div className="mt-6 flex justify-center items-center gap-2 text-4xl md:text-5xl font-bold text-red-600 tabular-nums">
-                <Clock className="h-8 w-8" />
-                {countdownDate > 0 && <Countdown date={countdownDate} renderer={CountdownRenderer} />}
-            </div>
-             <p className="mt-6 text-lg text-foreground/80 font-semibold">
-                Esta no es una oferta más — es una oportunidad espiritual que muchos dejarán pasar sin darse cuenta.
+            <p className="mt-6 text-lg text-foreground/80">
+                Cierras los ojos y te preguntas otra vez:
             </p>
-            <p className="mt-2 text-foreground/70">
-                No esperes. Muchos ya se están uniendo en este momento.
+             <p className="mt-4 text-2xl md:text-3xl text-foreground/90 font-semibold italic">
+               “¿Por qué nada cambia… si sigo creyendo?”
             </p>
-            <Button size="lg" className="mt-8 cta-button w-full md:w-auto text-lg h-auto py-4" onClick={scrollToPricing}>
-                Asegurar mi acceso ahora
-            </Button>
+            <p className="mt-6 text-lg text-foreground/70">
+                El silencio de Dios pesa.<br/>
+                Pero ¿y si este silencio es el mismo que escuchó Abraham antes de colocar a Isaac en el altar?<br/>
+                ¿Y si lo que llamas “espera” es justo el momento en que Dios está forjando tu fe?
+            </p>
         </div>
       </section>
       
-      {/* SECCIÓN 3 - Mockup App */}
+      {/* SECCIÓN 2 – La Promesa Oculta */}
       <section className="py-16 px-6">
         <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-semibold text-foreground/90 mb-4">Una experiencia espiritual moderna y exclusiva</h2>
-            <p className="text-lg text-foreground/70 max-w-2xl mx-auto mb-8">
-               A través del aplicativo exclusivo Patriarcas y Profetas, podrás leer, escuchar, anotar tus reflexiones y seguir un plan de estudio personalizado. Todo en un solo lugar.
+            <h2 className="text-3xl md:text-4xl font-semibold text-foreground/90 mb-4">Los Patriarcas no eran héroes perfectos.</h2>
+            <p className="text-lg text-foreground/70 max-w-3xl mx-auto mb-8">
+               Eran hombres y mujeres como tú: cansados, heridos, muchas veces dudando. Pero había algo distinto: no se rendían cuando Dios callaba.
             </p>
+            <p className="text-lg text-foreground/80 font-semibold max-w-3xl mx-auto mb-12">
+               Este aplicativo espiritual te revela lo que ellos descubrieron en medio del desierto:
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto text-left">
+                <div className="flex items-start gap-3"><CheckCircle className="h-6 w-6 text-primary/80 mt-1 shrink-0" /><p className="text-lg">Por qué Dios tarda cuando todo parece perdido</p></div>
+                <div className="flex items-start gap-3"><CheckCircle className="h-6 w-6 text-primary/80 mt-1 shrink-0" /><p className="text-lg">El verdadero propósito detrás de la prueba de Abraham</p></div>
+                <div className="flex items-start gap-3"><CheckCircle className="h-6 w-6 text-primary/80 mt-1 shrink-0" /><p className="text-lg">Cómo convertir el silencio en dirección</p></div>
+                <div className="flex items-start gap-3"><CheckCircle className="h-6 w-6 text-primary/80 mt-1 shrink-0" /><p className="text-lg">Y cómo recuperar esa voz interior que el mundo quiso apagar</p></div>
+            </div>
+        </div>
+      </section>
+
+      {/* SECCIÓN 3 – El Puente Espiritual Moderno */}
+       <section className="py-16 px-6 bg-background">
+        <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-semibold text-foreground/90 mb-4">No es solo un libro.<br/>Es una experiencia espiritual guiada, hecha para tu tiempo, tu ritmo, tu vida.</h2>
              {appMockupImage && (
-              <div className="inline-block p-1 bg-card rounded-lg shadow-2xl border-2 border-primary">
+              <div className="inline-block p-1 my-8 bg-card rounded-lg shadow-2xl border-2 border-primary">
                 <Image
                     src={appMockupImage.imageUrl}
                     alt="Aplicativo Patriarcas y Profetas"
@@ -291,80 +305,54 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                 />
               </div>
             )}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mt-12 text-center">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 text-center max-w-3xl mx-auto">
                 <div className="flex flex-col items-center"><BookUser className="h-8 w-8 text-primary/80" /><p className="mt-2 text-sm font-medium">Lectura guiada</p></div>
                 <div className="flex flex-col items-center"><Headphones className="h-8 w-8 text-primary/80" /><p className="mt-2 text-sm font-medium">Versión en audio</p></div>
-                <div className="flex flex-col items-center"><FileText className="h-8 w-8 text-primary/80" /><p className="mt-2 text-sm font-medium">Notas personales</p></div>
-                <div className="flex flex-col items-center"><Star className="h-8 w-8 text-primary/80" /><p className="mt-2 text-sm font-medium">Reflexiones diarias</p></div>
-                <div className="flex flex-col items-center"><CalendarCheck className="h-8 w-8 text-primary/80" /><p className="mt-2 text-sm font-medium">Plan de 21 días</p></div>
-                <div className="flex flex-col items-center"><Smartphone className="h-8 w-8 text-primary/80" /><p className="mt-2 text-sm font-medium">Acceso móvil</p></div>
+                <div className="flex flex-col items-center"><Sparkles className="h-8 w-8 text-primary/80" /><p className="mt-2 text-sm font-medium">Reflexiones diarias personalizadas</p></div>
+                <div className="flex flex-col items-center"><FileText className="h-8 w-8 text-primary/80" /><p className="mt-2 text-sm font-medium">Notas y estudio dentro de la app</p></div>
             </div>
-        </div>
-      </section>
-
-      {/* SECCIÓN 4 — Autoridad */}
-      <section className="py-16 px-6 bg-background">
-        <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 md:gap-12 items-center">
-          <div className="flex justify-center md:justify-start">
-            {authorImage && (
-              <div className="inline-block p-1 bg-card rounded-lg shadow-lg border-2 border-primary">
-                <Image
-                    src={authorImage.imageUrl}
-                    alt="Dr. Samuel Ortega"
-                    width={200}
-                    height={200}
-                    className="rounded-md"
-                    style={{maxWidth: '200px'}}
-                    data-ai-hint={authorImage.imageHint}
-                    loading="lazy"
-                />
-              </div>
-            )}
-          </div>
-          <div className="md:col-span-2 text-center md:text-left">
-            <h3 className="text-3xl font-semibold text-foreground/90">Dr. Samuel Ortega</h3>
-            <p className="text-lg text-primary font-medium">Historiador bíblico y teólogo latinoamericano</p>
-            <p className="mt-4 text-foreground/70">
-              Con más de 20 años investigando los textos antiguos, el Dr. Ortega muestra cómo las luchas de los patriarcas reflejan los desafíos espirituales de hoy. Su trabajo ha inspirado a miles a conectar la fe antigua con la vida moderna.
+            <p className="mt-12 text-lg text-foreground/70">
+                Más de 27,000 cristianos en toda Latinoamérica ya han vivido este despertar.<br/> Muchos dicen que fue como escuchar la voz de Dios de nuevo.
             </p>
-          </div>
         </div>
       </section>
 
-      {/* SECCIÓN 5 — Urgencia Emocional */}
+      {/* SECCIÓN 4 – El Llamado */}
       <section className="py-16 px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed">
-            Cada día que pasa sin comprender el propósito de tus pruebas, tu fe se enfría un poco más.
-            No dejes que el ruido del mundo apague lo que Dios aún quiere revelarte.
-            Esta experiencia fue diseñada para momentos como este.
+            Cada día que pasa sin entender el propósito de tus pruebas… tu fe se enfría un poco.
+          </p>
+           <p className="mt-4 text-xl md:text-2xl text-foreground/80 leading-relaxed">
+             No dejes que eso te pase.
           </p>
           <p className="mt-8 text-2xl font-semibold italic text-primary">
-            🕯️ “A veces, perder el momento también es una decisión.”
+            🕯️ “A veces, dejar pasar el momento… también es una elección.”
           </p>
           <Button size="lg" className="mt-10 cta-button w-full md:w-auto text-lg h-auto py-4" onClick={scrollToPricing}>
-            Comenzar mi estudio guiado
+            👉 Inicia tu Estudio Guiado Ahora
           </Button>
         </div>
       </section>
 
-      {/* SECCIÓN 6 — Planes */}
+      {/* SECCIÓN 5 – Planes */}
         <section id="pricing-section" className="py-16 px-6 bg-background">
             <div className="max-w-5xl mx-auto text-center">
                 <h2 className="text-3xl md:text-4xl font-semibold text-foreground/90 mb-12">Elige cómo comenzar tu viaje espiritual</h2>
                 <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     <Card className="text-center flex flex-col">
                         <CardHeader>
-                            <CardTitle className="text-2xl">Plan Básico</CardTitle>
+                            <CardTitle className="text-2xl">💡 Plan Básico</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-6 flex flex-col flex-grow">
-                            <p className="text-4xl font-bold">U$6,90</p>
+                            <p className="text-4xl font-bold">$6.90 USD</p>
                             <ul className="space-y-2 text-left text-foreground/80 flex-grow">
-                                <li className="flex items-center"><CheckCircle className="h-5 w-5 mr-2 text-green-600" /> Acceso completo al aplicativo</li>
-                                <li className="flex items-center"><CheckCircle className="h-5 w-5 mr-2 text-green-600" /> Plan de lectura guiada</li>
-                                <li className="flex items-center"><CheckCircle className="h-5 w-5 mr-2 text-green-600" /> Lectura y audio integrados</li>
+                                <li className="flex items-center"><CheckCircle className="h-5 w-5 mr-2 text-green-600" /> Acceso completo a la app</li>
+                                <li className="flex items-center"><CheckCircle className="h-5 w-5 mr-2 text-green-600" /> Lectura + audio integrados</li>
+                                <li className="flex items-center"><CheckCircle className="h-5 w-5 mr-2 text-green-600" /> Plan de estudio guiado de 21 días</li>
                             </ul>
-                            <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10 hover:text-primary" onClick={() => setIsUpgradeModalOpen(true)}>Comenzar con el Básico</Button>
+                             <p className="text-sm text-muted-foreground">Perfecto para comenzar tu camino espiritual.</p>
+                             <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10 hover:text-primary" onClick={() => setIsUpgradeModalOpen(true)}>Comenzar con el Básico</Button>
                         </CardContent>
                     </Card>
                     <Card className="border-2 border-primary relative card-glow flex flex-col">
@@ -372,31 +360,49 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                             Recomendado
                         </div>
                         <CardHeader>
-                            <CardTitle className="text-2xl">Plan Completo</CardTitle>
+                            <CardTitle className="text-2xl">🔥 Plan Completo</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-6 flex flex-col flex-grow">
                              <div className="bg-primary/10 border-l-4 border-primary text-primary-foreground p-3 rounded-r-lg">
-                                <p className="font-semibold text-sm text-center text-foreground/90">¡Más de 1895 personas ya eligieron este plano!</p>
+                                 <p className="text-center text-foreground/90">💬 “Nunca imaginé que entender las pruebas de Abraham me ayudaría a entender las mías.” <span className="font-semibold">— Carolina M., México</span></p>
+                                 <p className="mt-2 text-center text-foreground/90">💬 “Esta app llegó justo cuando más lo necesitaba.” <span className="font-semibold">— María José R., Colombia</span></p>
                              </div>
-                            <p className="text-4xl font-bold">U$11,90 <span className="text-xl line-through text-muted-foreground">U$25,90</span></p>
+                            <p className="text-4xl font-bold">$11.90 USD <span className="text-xl line-through text-muted-foreground">U$25,90</span></p>
                              <ul className="space-y-2 text-left text-foreground/80 flex-grow">
-                                <li className="flex items-start"><Check className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Todo lo del Plan Básico</span></div></li>
-                                <li className="flex items-start"><BookUser className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Módulo de anotaciones</span></div></li>
+                                <li className="flex items-start"><Check className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Incluye TODO lo del Plan Básico +:</span></div></li>
+                                <li className="flex items-start"><Sparkles className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Reflexiones guiadas cada día</span></div></li>
                                 <li className="flex items-start"><MessageSquareQuote className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Comentarios del autor</span></div></li>
-                                <li className="flex items-start"><Sparkles className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Reflexiones diarias guiadas</span></div></li>
-                                <li className="flex items-start"><Gift className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">BÔNUS #1:</span> Comunidad VIP en Whatsapp <span className="text-xs line-through text-muted-foreground">(U$7)</span></div></li>
-                                <li className="flex items-start"><Book className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">BÔNUS #2:</span> Ebook Los Códigos da Oración <span className="text-xs line-through text-muted-foreground">(U$7)</span></div></li>
+                                <li className="flex items-start"><FileText className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="font-semibold text-foreground">Módulo de notas personales</span></div></li>
+                                <li className="flex items-start font-semibold"><Gift className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div><span className="text-foreground">BONOS:</span></div></li>
+                                <li className="flex items-start ml-4"><Book className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div>Comunidad VIP en WhatsApp <span className="text-xs line-through text-muted-foreground">($7)</span></div></li>
+                                <li className="flex items-start ml-4"><Book className="h-5 w-5 mr-2 text-green-600 shrink-0 mt-1" /> <div>E-book Los Códigos de la Oración <span className="text-xs line-through text-muted-foreground">($7)</span></div></li>
                             </ul>
-                             <p className="text-sm text-green-700 font-semibold"><Star className="inline-block h-4 w-4 mr-1" /> Ahorras U$14 en bônus. ¡Ideal para una experiencia profunda!</p>
                              <a href="https://pay.hotmart.com/K99537811Y?off=rtgmziqk&checkoutMode=10&bid=1762987298554" target="_blank" rel="noopener noreferrer" className="w-full">
                                 <Button className="w-full cta-button text-base md:text-lg h-auto py-3 px-6">Quiero el acceso completo al App</Button>
                              </a>
-                            <p className="text-xs text-muted-foreground pt-2">🕊️ Muchos que comenzaron con el básico luego desearon haber elegido el completo desde el principio.</p>
                         </CardContent>
                     </Card>
                 </div>
             </div>
         </section>
+
+      {/* SECCIÓN 6 – Urgencia */}
+      <section className="py-16 px-6 text-center bg-amber-50">
+        <div className="max-w-3xl mx-auto">
+          <div className="flex justify-center items-center gap-3">
+            <h2 className="text-2xl md:text-3xl font-semibold text-foreground/80">
+              El acceso especial con <span className="text-red-600">50% de descuento</span> termina a las:
+            </h2>
+          </div>
+          <div className="mt-6 flex justify-center items-center gap-2 text-4xl md:text-5xl font-bold text-red-600 tabular-nums">
+            <Clock className="h-8 w-8" />
+            {countdownDate > 0 && <Countdown date={countdownDate} renderer={CountdownRenderer} />}
+          </div>
+          <p className="mt-6 text-lg text-foreground/80 font-semibold">
+            No es solo una oferta. Es un llamado espiritual.
+          </p>
+        </div>
+      </section>
 
       {/* SECCIÓN 7 — Garantía */}
       <section className="py-16 px-6 text-center">
@@ -429,10 +435,12 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
                                     <Card>
                                         <CardContent className="flex flex-col items-center justify-center p-6 text-center">
                                             {image && (
-                                                <Avatar className="w-20 h-20 mb-4 border-4 border-primary">
-                                                    <AvatarImage src={image.imageUrl} alt={testimonial.author} className="object-cover" loading="lazy" />
-                                                    <AvatarFallback>{testimonial.author.substring(0,2)}</AvatarFallback>
-                                                </Avatar>
+                                                <div className="inline-block p-1 bg-card rounded-full shadow-lg border-2 border-primary mb-4">
+                                                    <Avatar className="w-20 h-20">
+                                                        <AvatarImage src={image.imageUrl} alt={testimonial.author} className="object-cover" loading="lazy" />
+                                                        <AvatarFallback>{testimonial.author.substring(0,2)}</AvatarFallback>
+                                                    </Avatar>
+                                                </div>
                                             )}
                                             <p className="text-lg italic">"{testimonial.quote}"</p>
                                             <p className="mt-4 font-semibold text-primary">— {testimonial.author}</p>
@@ -465,18 +473,18 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
         </div>
       </section>
 
-      {/* SECCIÓN 10 — Cierre */}
+      {/* SECCIÓN 10 — CTA Final */}
       <section className="py-16 px-6 text-center bg-background">
         <div className="max-w-3xl mx-auto">
             <p className="text-2xl font-semibold italic text-primary">
-                “Los Patriarcas también dudaron, también temieron... pero fueron transformados por su fe.”
+               “Los patriarcas también dudaron y también temieron… pero fueron transformados por su fe.”
             </p>
           <p className="mt-8 text-xl md:text-2xl text-foreground/80 leading-relaxed">
-            Hoy tú tienes la misma oportunidad de escuchar el llamado.
+            Hoy, tú tienes la misma oportunidad.<br/>
             No ignores esa voz interior que te trajo hasta aquí.
           </p>
           <Button size="lg" className="mt-10 cta-button text-lg h-auto py-4 w-full md:w-auto" onClick={scrollToPricing}>
-            Sí, quiero comenzar mi despertar espiritual
+            🕊️ Quiero iniciar mi despertar espiritual ahora
           </Button>
         </div>
       </section>
@@ -542,5 +550,3 @@ export function ResultScreen({ patriarch, insight, onRestart }: ResultScreenProp
     </div>
   );
 }
-
-    
