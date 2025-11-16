@@ -90,6 +90,7 @@ const handleStart = () => {
         getSpiritualInsightAction(finalPatriarch, answerTexts)
             .then(insight => {
                 setResult({ patriarch: finalPatriarch, insight });
+              registrarEvento(sessionId, "Quiz Finalizado", finalPatriarch);
                 setQuizState('result');
             })
             .catch(err => {
